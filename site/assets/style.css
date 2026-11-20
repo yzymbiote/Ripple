@@ -288,6 +288,9 @@ table.data td.num { text-align: right; }
   opacity: 0; transform: translateY(4px); transition: opacity 0.15s ease, transform 0.15s ease;
 }
 .popover.show { opacity: 1; transform: none; }
+.popover.pinned { pointer-events: auto; padding-right: 36px; }
+.pop-close { position: absolute; top: 6px; right: 6px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--panel); color: var(--text); font: 18px/1 var(--sans); cursor: pointer; }
 .popover q { display: block; font-family: var(--serif); font-size: 14px; line-height: 1.45; margin: 6px 0; quotes: "\201C" "\201D"; }
 .popover .meta { font: 11px var(--mono); color: var(--text-2); }
 
@@ -321,3 +324,5 @@ table.data td.num { text-align: right; }
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   .ticker-track { animation: none; }
 }
+/* No focus box after tapping a line or dot with a finger/mouse (keyboard users still see it). */
+.link-hit:focus:not(:focus-visible), .map-node:focus:not(:focus-visible) { outline: none; }
