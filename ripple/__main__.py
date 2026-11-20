@@ -207,6 +207,14 @@ def cmd_review(args) -> None:
     review_server.serve(port=args.port, open_browser=not args.no_browser)
 
 
+def cmd_add_event(args) -> None:
+    from . import events, export_site, state
+    conn = _conn()
+    print("Added", events.add_event_from_file(conn, args.file), "- it will be explained by the next AI run (job 3).")
+    state.save(conn)
+    export_site.export(conn)
+
+
 def main(argv=None) -> None:
     p = argparse.ArgumentParser(prog="python -m ripple", description="Ripple supply chain tracker")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -274,6 +282,10 @@ def main(argv=None) -> None:
     s.add_argument("--port", type=int, default=8765)
     s.add_argument("--no-browser", action="store_true")
     s.set_defaults(func=cmd_review)
+
+    s = sub.add_parser("add-event", help="enter an event by hand from a JSON file (see data/events/)")
+    s.add_argument("file")
+    s.set_defaults(func=cmd_add_event)
 
     args = p.parse_args(argv)
     args.func(args)
