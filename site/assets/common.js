@@ -2,6 +2,10 @@
 (function () {
   "use strict";
   const D = window.RIPPLE_DATA || { nodes: {}, links: [], events: [] };
+  // Once real links exist, maps and company pages show only real links. SAMPLE links then only
+  // appear inside SAMPLE event pages (which need them for their ripple).
+  const realLinks = (D.links || []).filter((l) => !l.is_sample);
+  D.mapLinks = realLinks.length ? realLinks : (D.links || []);
 
   const LAYER_LABEL = { memory: "Memory", packaging: "Packaging & chipmaking", power: "Power & cooling", materials: "Materials", buyers: "Buyers" };
   const KIND_LABEL = { company: "Company", place: "Place", material: "Material", part: "Part" };

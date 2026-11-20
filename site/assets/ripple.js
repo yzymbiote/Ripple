@@ -266,7 +266,7 @@
     const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
     const p = {};
     ids.forEach((id) => { const a = anchorFor(nodes[id]); p[id] = [a[0] * w * 0.5 + (rnd() - 0.5) * 60, a[1] * h * 0.5 + (rnd() - 0.5) * 60]; });
-    const k = Math.sqrt((w * h) / Math.max(1, ids.length)) * 0.55;
+    const k = Math.sqrt((w * h) / Math.max(1, ids.length)) * 0.32;
     for (let it = 0; it < 260; it++) {
       const disp = {};
       ids.forEach((id) => (disp[id] = [0, 0]));
@@ -301,11 +301,11 @@
     container.innerHTML = "";
     const svg = el("svg", { viewBox: `${-w / 2} ${-h / 2} ${w} ${h}`, role: "img", class: "hero-map", "aria-label": `Map of ${Object.keys(D.nodes).length} companies, places and materials` }, container);
     defs(svg, "hero");
-    const p = layoutMap(D.nodes, D.links, w, h);
+    const p = layoutMap(D.nodes, D.mapLinks, w, h);
     const latest = (D.events || [])[0];
     const hot = new Set(latest ? latest.affected_nodes : []);
     const eg = el("g", {}, svg);
-    D.links.forEach((l) => {
+    D.mapLinks.forEach((l) => {
       if (!p[l.from] || !p[l.to]) return;
       const touchesHot = hot.has(l.from) || hot.has(l.to);
       const line = el("line", { x1: p[l.from][0], y1: p[l.from][1], x2: p[l.to][0], y2: p[l.to][1],
@@ -319,7 +319,7 @@
     });
     const ng = el("g", {}, svg);
     const degree = {};
-    D.links.forEach((l) => { degree[l.from] = (degree[l.from] || 0) + 1; degree[l.to] = (degree[l.to] || 0) + 1; });
+    D.mapLinks.forEach((l) => { degree[l.from] = (degree[l.from] || 0) + 1; degree[l.to] = (degree[l.to] || 0) + 1; });
     Object.keys(D.nodes).forEach((id, i) => {
       const n = D.nodes[id];
       const [x, y] = p[id];

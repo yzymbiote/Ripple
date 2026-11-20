@@ -15,7 +15,7 @@
   const companies = Object.values(D.nodes).filter((n) => n.kind === "company");
   R.qs("#stats").innerHTML = [
     [companies.length, "companies"], [Object.keys(D.nodes).length - companies.length, "places & materials"],
-    [D.links.length, "sourced links"], [events.length, "events traced"],
+    [D.mapLinks.length, "sourced links"], [events.length, "events traced"],
   ].map(([n, l]) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`).join("");
 
   // Hero map

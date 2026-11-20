@@ -29,11 +29,11 @@
     const box = R.qs("#side");
     if (!selected || !D.nodes[selected]) {
       box.innerHTML = `<div class="eyebrow">How to use</div><p style="margin:0">Click any dot to see who it supplies, who supplies it, and the filing quote behind each link. Use the buttons above to show or hide a layer.</p>
-        <p class="muted" style="margin:0;font-size:13px">${Object.keys(D.nodes).length} nodes · ${D.links.length} links</p>`;
+        <p class="muted" style="margin:0;font-size:13px">${Object.keys(D.nodes).length} nodes · ${D.mapLinks.length} links</p>`;
       return;
     }
     const n = D.nodes[selected];
-    const mine = D.links.filter((l) => l.from === selected || l.to === selected);
+    const mine = D.mapLinks.filter((l) => l.from === selected || l.to === selected);
     box.innerHTML = `<div class="eyebrow">${esc(n.kind === "company" ? R.LAYER_LABEL[n.layer] : R.KIND_LABEL[n.kind])}</div>
       <h2>${esc(n.name)}</h2><p class="muted" style="margin:0">${esc(n.notes || "")}</p>
       <a href="${R.nodeUrl(selected)}">Open full page →</a>
@@ -56,10 +56,10 @@
     let nodes = visible;
     if (small && selected) {
       const keep = new Set([selected]);
-      D.links.forEach((l) => { if (l.from === selected) keep.add(l.to); if (l.to === selected) keep.add(l.from); });
+      D.mapLinks.forEach((l) => { if (l.from === selected) keep.add(l.to); if (l.to === selected) keep.add(l.from); });
       nodes = Object.fromEntries(Object.entries(visible).filter(([id]) => keep.has(id)));
     }
-    const links = D.links.filter((l) => nodes[l.from] && nodes[l.to]);
+    const links = D.mapLinks.filter((l) => nodes[l.from] && nodes[l.to]);
     const w = 1000, h = small ? 1000 : 640;
     box.innerHTML = "";
     svg = R.svgEl("svg", { viewBox: `${-w / 2} ${-h / 2} ${w} ${h}`, role: "img", "aria-label": "Supply map" }, box);
