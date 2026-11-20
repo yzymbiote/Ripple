@@ -55,7 +55,11 @@ def cmd_load_sample(args) -> None:
     from . import sample
     conn = db.connect()
     db.init(conn)
-    print(sample.load_sample_links(conn))
+    if args.remove:
+        sample.remove_sample(conn)
+        print("Removed all SAMPLE links and events.")
+    else:
+        print(sample.load_sample_links(conn))
 
 
 def cmd_trace(args) -> None:
@@ -111,7 +115,9 @@ def main(argv=None) -> None:
     s.add_argument("--redo", action="store_true")
     s.set_defaults(func=cmd_cut_sections)
 
-    sub.add_parser("load-sample", help="load the hand-made SAMPLE links (for testing only)").set_defaults(func=cmd_load_sample)
+    s = sub.add_parser("load-sample", help="load the hand-made SAMPLE links (for testing only)")
+    s.add_argument("--remove", action="store_true", help="remove all SAMPLE links and events instead")
+    s.set_defaults(func=cmd_load_sample)
 
     s = sub.add_parser("trace", help="trace a ripple from one or more nodes")
     s.add_argument("nodes", help="comma-separated node ids, e.g. ras_laffan,helium")
