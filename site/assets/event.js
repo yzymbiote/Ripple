@@ -48,7 +48,7 @@
           ${ev.is_sample ? '<span class="sample-tag">SAMPLE</span>' : ""}</div>
         <h1>${esc(ev.title)}</h1>
         <p class="dek">${esc(ev.one_line || "")}</p>
-        <div class="byline"><span>Started <time>${esc(R.fmtDate(ev.started_at))}</time></span><span>${impacts.length} companies reached</span>
+        <div class="byline"><span>Started <time>${esc(R.fmtDate(ev.started_at))}</time></span><span>${impacts.length} compan${impacts.length === 1 ? "y" : "ies"} reached</span>
           <span>Directly hit: ${ev.affected_nodes.map((n) => `<a href="${R.nodeUrl(n)}">${esc(R.node(n).name)}</a>`).join(", ")}</span></div>
       </header>
 
@@ -58,7 +58,7 @@
           <div class="eyebrow" style="margin-bottom:10px">Most exposed</div>
           <div class="ranked" id="ranked">${impacts.slice(0, 8).map(rankRow).join("")}</div>
           <div class="legend" style="margin-top:14px"><span><i style="background:var(--hurt)"></i>Hurt</span><span><i style="background:var(--helped)"></i>Helped</span><span><i style="background:var(--unclear)"></i>Unclear</span><span><i class="dash"></i>Low-confidence link</span></div>
-          <p class="muted" style="font-size:12px;margin-top:10px">Bigger, brighter dots are more exposed. Hover a line to see the filing quote behind it.</p>
+          <p class="muted" style="font-size:12px;margin-top:10px">Bigger, brighter dots are more exposed. Tap or hover a line to see the filing quote behind it.</p>
         </aside>
       </div>
     </div>

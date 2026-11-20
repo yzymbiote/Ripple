@@ -54,6 +54,7 @@
     if (!s) return "—";
     const d = new Date(s.length === 7 ? s + "-01" : s);
     if (isNaN(d)) return s;
+    if (s.length === 7) return d.toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" }); // month only known
     return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" });
   }
   function daysSince(s) { const d = new Date(s); return isNaN(d) ? null : Math.floor((Date.now() - d) / 864e5); }

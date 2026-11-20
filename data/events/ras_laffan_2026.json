@@ -1,0 +1,15 @@
+{
+  "_comment": "Entered by hand (build plan: 'First test: the Qatar helium shock'). Sources are real news reports; they disagree on the exact day, so the date is recorded as the month.",
+  "id": "evt_0001",
+  "title": "Strikes knock out Qatar's Ras Laffan gas hub",
+  "one_line": "Iranian strikes on Qatar's Ras Laffan Industrial City cut a large share of the world's helium supply, which chip fabs need.",
+  "event_type": "disruption",
+  "severity": 5,
+  "started_at": "2026-03",
+  "affected_nodes": ["ras_laffan", "helium"],
+  "sources": [
+    {"title": "The global helium shortage is a direct threat to the chipmaking supply chain", "url": "https://www.tomshardware.com/tech-industry/semiconductors/the-global-helium-shortage-is-a-direct-threat-to-chipmaking", "date": "2026"},
+    {"title": "Qatar Helium Shock Keeps Asia's Chip Supply Under Pressure", "url": "https://www.environmentenergyleader.com/articles/45108-qatar-helium-shock-keeps-asias-chip-supply-under-pressure", "date": "2026"},
+    {"title": "When a Commodity Becomes Rare: The Helium Crisis, the Ras Laffan Shock, and the Fragility of Global Supply", "url": "https://rareearthexchanges.com/news/when-a-commodity-becomes-rare-the-helium-crisis-the-ras-laffan-shock-and-the-fragility-of-global-supply/", "date": "2026"}
+  ]
+}
