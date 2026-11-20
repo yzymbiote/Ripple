@@ -48,7 +48,8 @@ def flag(name: str) -> bool:
 
 # --- SEC EDGAR -------------------------------------------------------------
 # SEC requires a User-Agent with a contact email. Read it from the environment.
-SEC_USER_AGENT = get("SEC_USER_AGENT")
+# Stray line breaks or extra spaces (easy to type on a phone) would make SEC reject the request.
+SEC_USER_AGENT = " ".join((get("SEC_USER_AGENT") or "").split()) or None
 SEC_MAX_REQUESTS_PER_SECOND = 8  # SEC limit is 10/s; stay safely under it.
 
 # --- Claude API (AI jobs) ----------------------------------------------------
