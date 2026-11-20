@@ -1,0 +1,132 @@
+{
+ "queue_id": "q20261120-145111",
+ "answered_by": "claude-code-session",
+ "job1": [
+  {
+   "task_id": "s356",
+   "links": [
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Taiwan",
+     "what": null,
+     "share": null,
+     "quote": "ASEH’s main manufacturing facilities are located in Taiwan, the P.R.C., South Korea, Japan, Singapore, Malaysia, the Philippines, Vietnam, Mexico, America, Poland, France, the United Kingdom, Germany, Tunisia, the Czech Republic, and Hungary."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Japan",
+     "what": null,
+     "share": null,
+     "quote": "ASEH’s main manufacturing facilities are located in Taiwan, the P.R.C., South Korea, Japan, Singapore, Malaysia, the Philippines, Vietnam, Mexico, America, Poland, France, the United Kingdom, Germany, Tunisia, the Czech Republic, and Hungary."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Singapore",
+     "what": null,
+     "share": null,
+     "quote": "ASEH’s main manufacturing facilities are located in Taiwan, the P.R.C., South Korea, Japan, Singapore, Malaysia, the Philippines, Vietnam, Mexico, America, Poland, France, the United Kingdom, Germany, Tunisia, the Czech Republic, and Hungary."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Malaysia",
+     "what": null,
+     "share": null,
+     "quote": "ASEH’s main manufacturing facilities are located in Taiwan, the P.R.C., South Korea, Japan, Singapore, Malaysia, the Philippines, Vietnam, Mexico, America, Poland, France, the United Kingdom, Germany, Tunisia, the Czech Republic, and Hungary."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "South Korea",
+     "what": null,
+     "share": null,
+     "quote": "ASEH’s main manufacturing facilities are located in Taiwan, the P.R.C., South Korea, Japan, Singapore, Malaysia, the Philippines, Vietnam, Mexico, America, Poland, France, the United Kingdom, Germany, Tunisia, the Czech Republic, and Hungary."
+    }
+   ]
+  },
+  {
+   "task_id": "s524",
+   "links": []
+  },
+  {
+   "task_id": "s543",
+   "links": []
+  },
+  {
+   "task_id": "s368",
+   "links": [
+    {
+     "type": "produces",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "custom accelerators (XPUs)",
+     "share": null,
+     "quote": "Our AI semiconductor solutions include custom accelerators or XPUs, Ethernet switching and routing silicon, Ethernet NICs, physical layer devices (“PHYs”) and optical components, as well as racks and systems based on our XPUs."
+    }
+   ]
+  },
+  {
+   "task_id": "s182",
+   "links": []
+  },
+  {
+   "task_id": "s313",
+   "links": []
+  },
+  {
+   "task_id": "s562",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Infineon",
+     "what": null,
+     "share": null,
+     "quote": "AET adds resources and expertise to our company and strengthens the relationship between us and this key customer."
+    }
+   ]
+  },
+  {
+   "task_id": "s500",
+   "links": []
+  },
+  {
+   "task_id": "s230",
+   "links": []
+  },
+  {
+   "task_id": "s210",
+   "links": []
+  },
+  {
+   "task_id": "s337",
+   "links": []
+  },
+  {
+   "task_id": "s423",
+   "links": []
+  }
+ ],
+ "job2": [
+  {
+   "task_id": "doc_000367",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "Report that Nvidia is in talks to acquire AI startup Inception; an unconfirmed deal report, not a supply change."
+  },
+  {
+   "task_id": "doc_000341",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "AMD shares fall after a short seller raises China export concerns; stock commentary, not a confirmed supply event."
+  }
+ ],
+ "job3": []
+}

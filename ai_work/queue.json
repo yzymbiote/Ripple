@@ -1,7 +1,7 @@
 {
  "queue_id": "q20261120-145111",
  "prepared_at": "2026-11-20 14:51 UTC",
- "status": "ready",
+ "status": "imported",
  "instructions": "Follow AI_TASKS.md. Write answers to ai_work/results.json, then run: python -m ripple ai-import",
  "job1_link_extractor": [
   {

@@ -55,6 +55,7 @@
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000338", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000339", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000340", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 15:32:35", "document_id": "doc_000341", "event_id": null, "result": "{\"task_id\": \"doc_000341\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"AMD shares fall after a short seller raises China export concerns; stock commentary, not a confirmed supply event.\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000342", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000343", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000344", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
@@ -80,6 +81,7 @@
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000364", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000365", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000366", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 15:32:35", "document_id": "doc_000367", "event_id": null, "result": "{\"task_id\": \"doc_000367\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Report that Nvidia is in talks to acquire AI startup Inception; an unconfirmed deal report, not a supply change.\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000368", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000369", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000370", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
