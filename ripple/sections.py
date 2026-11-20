@@ -150,5 +150,12 @@ def cut_all(conn: sqlite3.Connection, redo: bool = False) -> int:
             conn.execute(
                 "INSERT OR IGNORE INTO document_sections (document_id, section, text, keyword_hits) VALUES (?,?,?,?)",
                 (d["id"], name, body, keyword_hits(body)))
+    # Sections rebuilt from data/state/ have no text: refill them from re-downloaded documents.
+    empty = conn.execute(
+        """SELECT s.id, s.section, d.text, d.doc_type FROM document_sections s JOIN documents d ON d.id = s.document_id
+           WHERE s.text = '' AND d.text IS NOT NULL""").fetchall()
+    for s in empty:
+        body = cut(s["text"], s["doc_type"]).get(s["section"], "")
+        conn.execute("UPDATE document_sections SET text=? WHERE id=?", (body, s["id"]))
     conn.commit()
     return len(docs)

@@ -46,7 +46,7 @@ def link_extractor_requests(conn: sqlite3.Connection, limit: int = 5) -> list[tu
     return out
 
 
-def check_and_store_links(conn: sqlite3.Connection, section_id: int, reply: dict) -> dict:
+def check_and_store_links(conn: sqlite3.Connection, section_id: int, reply: dict, verify_text: str | None = None) -> dict:
     """The checker (code part): verbatim quote check, name matching, duplicate merging."""
     sec = conn.execute("""SELECT s.*, d.text AS doc_text, d.company_id, d.published_at
                           FROM document_sections s JOIN documents d ON d.id = s.document_id WHERE s.id=?""",
@@ -54,7 +54,7 @@ def check_and_store_links(conn: sqlite3.Connection, section_id: int, reply: dict
     names = NameIndex(conn)
     stats = {"linked": 0, "needs_review": 0, "rejected": 0}
     for item in reply.get("links", []):
-        verified = quote_in_text(item.get("quote", ""), sec["doc_text"])
+        verified = quote_in_text(item.get("quote", ""), verify_text if verify_text is not None else (sec["doc_text"] or sec["text"]))
         matched = names.match(item.get("other_party"))
         status, reason, link_id = "needs_review", None, None
         if not verified:

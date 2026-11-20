@@ -163,6 +163,13 @@ CREATE TABLE IF NOT EXISTS event_checks (
     checked_at   TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+-- Extra names for nodes added during review (so they survive a rebuild from data/state).
+CREATE TABLE IF NOT EXISTS node_aliases_added (
+    node_id  TEXT NOT NULL REFERENCES nodes(id),
+    alias    TEXT NOT NULL,
+    PRIMARY KEY (node_id, alias)
+);
+
 CREATE INDEX IF NOT EXISTS idx_links_from ON links(from_node);
 CREATE INDEX IF NOT EXISTS idx_links_to ON links(to_node);
 CREATE INDEX IF NOT EXISTS idx_docs_company ON documents(company_id);

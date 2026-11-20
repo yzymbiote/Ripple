@@ -151,3 +151,25 @@ def collect(conn: sqlite3.Connection, companies: list[str] | None = None, quarte
                 summary["skipped_existing"] += 1
     log(json.dumps(summary, indent=2))
     return summary
+
+
+def rehydrate(conn: sqlite3.Connection, document_ids: list[str] | None = None, log=print) -> int:
+    """Download the text again for stored SEC documents whose text is missing
+    (the database was rebuilt from data/state/, which doesn't keep filing text)."""
+    sql = "SELECT id, url, company_id, doc_type FROM documents WHERE source='sec_edgar' AND text IS NULL AND url IS NOT NULL"
+    rows = conn.execute(sql).fetchall()
+    if document_ids is not None:
+        wanted = set(document_ids)
+        rows = [r for r in rows if r["id"] in wanted]
+    n = 0
+    for r in rows:
+        try:
+            raw = session().get(r["url"]).content
+        except Exception as exc:
+            log(f"! could not re-download {r['id']}: {exc}")
+            continue
+        text = html_to_text(raw) if r["url"].lower().endswith((".htm", ".html", ".xml")) else raw.decode("utf-8", "replace")
+        conn.execute("UPDATE documents SET text=? WHERE id=?", (text, r["id"]))
+        n += 1
+    conn.commit()
+    return n
