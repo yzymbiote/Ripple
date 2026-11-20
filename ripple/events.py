@@ -77,3 +77,26 @@ def save_impacts(conn: sqlite3.Connection, event_id: str, candidates: list[dict]
     conn.execute("UPDATE events SET status='analysed' WHERE id=? AND status='new'", (event_id,))
     conn.commit()
     return {"stored": len(candidates), "explained": len(set(explanations) & known), "dropped_invented": dropped}
+
+
+def add_event_from_file(conn: sqlite3.Connection, path) -> str:
+    """Enter an event by hand from a JSON file (see data/events/). Sources become 'news' documents."""
+    import datetime as dt
+    from pathlib import Path
+    ev = json.loads(Path(path).read_text(encoding="utf-8"))
+    if conn.execute("SELECT 1 FROM events WHERE id=?", (ev["id"],)).fetchone():
+        return ev["id"]
+    now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+    doc_ids = []
+    for i, src in enumerate(ev.get("sources", []), 1):
+        doc_id = f"doc_{ev['id']}_{i}"
+        conn.execute("""INSERT OR IGNORE INTO documents (id, source, url, doc_type, published_at, collected_at, text, processed, external_id)
+                        VALUES (?, 'manual', ?, 'news', ?, ?, ?, 1, ?)""",
+                     (doc_id, src.get("url"), src.get("date"), now, src["title"], src.get("url") or doc_id))
+        doc_ids.append(doc_id)
+    conn.execute("""INSERT INTO events (id, title, event_type, affected_nodes, severity, started_at, source_documents, status, one_line, is_sample)
+                    VALUES (?,?,?,?,?,?,?, 'new', ?, 0)""",
+                 (ev["id"], ev["title"], ev["event_type"], json.dumps(ev["affected_nodes"]), ev["severity"],
+                  ev.get("started_at"), json.dumps(doc_ids), ev.get("one_line")))
+    conn.commit()
+    return ev["id"]

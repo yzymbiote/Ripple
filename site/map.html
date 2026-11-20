@@ -20,6 +20,9 @@
     <p class="dek">Every line is a link found in a filing. Click a company to see its links; click a line to see the quote behind it. Dashed lines are low confidence.</p>
   </header>
   <div class="filters" id="filters" role="group" aria-label="Filter by layer"></div>
+  <div class="finder"><label class="sr-only" for="finder">Find a company, place or material</label>
+    <input id="finder" type="search" placeholder="Find a company, place or material…" autocomplete="off">
+    <div id="finder-list" class="finder-list"></div></div>
   <div class="explorer">
     <div class="ripple-canvas map-canvas"><div class="grid-bg"></div><div id="map"></div></div>
     <aside class="card side" id="side" aria-live="polite"></aside>

@@ -37,9 +37,19 @@ def test_unverified_link_cannot_be_approved(rconn):
 
 def test_candidate_becomes_pending_link_and_remembers_alias(rconn):
     cid = rconn.execute("SELECT id FROM link_candidates").fetchone()[0]
-    rconn.execute("INSERT INTO nodes (id, kind, name) VALUES ('foxconn','company','Foxconn')")
     assert review_server.act_on_candidate(rconn, cid, {"action": "link", "other_node": "foxconn", "add_alias": True}) == {"ok": True}
     link = rconn.execute("SELECT * FROM links WHERE from_node='foxconn'").fetchone()
     assert link["to_node"] == "nvidia" and link["status"] == "pending_review"
     assert "Hon Hai" in rconn.execute("SELECT aliases FROM nodes WHERE id='foxconn'").fetchone()[0]
     assert rconn.execute("SELECT status FROM link_candidates").fetchone()[0] == "linked"
+
+
+def test_unnamed_candidate_can_be_shown_as_placeholder(rconn):
+    rconn.execute("INSERT INTO link_candidates (document_id, filer_node, other_party, type, direction, share, quote, quote_verified, status) "
+                  "VALUES ('doc_000001','nvidia',NULL,'supplies','filer_to_other',22,'one direct customer represented 22%',1,'needs_review')")
+    named = rconn.execute("SELECT id FROM link_candidates WHERE other_party IS NOT NULL").fetchone()[0]
+    unnamed = rconn.execute("SELECT id FROM link_candidates WHERE other_party IS NULL").fetchone()[0]
+    assert "error" in review_server.act_on_candidate(rconn, named, {"action": "placeholder"})
+    assert review_server.act_on_candidate(rconn, unnamed, {"action": "placeholder"}) == {"ok": True}
+    from ripple import export_site
+    assert export_site.build(rconn, include_sample=False)["unnamed"][0]["share"] == 22

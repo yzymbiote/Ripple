@@ -25,6 +25,30 @@
       ${s.quote ? `<blockquote>${esc(s.quote)}</blockquote>` : ""}${s.url ? `<a href="${esc(s.url)}" rel="noopener" style="font-size:12px">${esc(s.doc_type || "source")} ↗</a>` : ""}</div>`;
   };
 
+  // Searchable list: the easy way to pick a company on a phone.
+  const finder = R.qs("#finder");
+  const listBox = R.qs("#finder-list");
+  function renderList() {
+    const q = (finder.value || "").trim().toLowerCase();
+    const items = Object.values(D.nodes).filter((n) => !q || n.name.toLowerCase().includes(q) || (n.ticker || "").toLowerCase().includes(q)
+      || (n.aliases || []).some((a) => a.toLowerCase().includes(q)))
+      .sort((a, b) => a.name.localeCompare(b.name));
+    const count = (id) => D.mapLinks.filter((l) => l.from === id || l.to === id).length;
+    listBox.innerHTML = items.map((n) => `<button type="button" class="finder-item${n.id === selected ? " on" : ""}" data-id="${esc(n.id)}">
+        ${n.kind === "company" && n.ticker ? R.badge(n.id) : `<span class="chip">${esc(R.KIND_LABEL[n.kind])}</span>`}<span>${esc(n.name)}</span><span class="muted mono">${count(n.id)}</span></button>`).join("");
+  }
+  finder.addEventListener("input", renderList);
+  listBox.addEventListener("click", (e) => {
+    const b = e.target.closest(".finder-item"); if (!b) return;
+    selected = b.dataset.id; draw();
+    R.qs("#side").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  function scrollToLink(id) {
+    const el = R.qs(`#side [data-link="${CSS.escape(id)}"]`);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
   function side() {
     const box = R.qs("#side");
     if (!selected || !D.nodes[selected]) {
@@ -76,25 +100,27 @@
       line.dataset.link = l.id;
       const hit = R.svgEl("line", Object.assign({ stroke: "transparent", "stroke-width": 14 }, attrs), eg);
       hit.style.cursor = "pointer";
-      hit.addEventListener("mousemove", (ev) => R.showPopover(R.linkPopoverHtml(l), ev.clientX, ev.clientY));
-      hit.addEventListener("mouseleave", R.hidePopover);
-      hit.addEventListener("click", () => { selected = l.from; draw(); setTimeout(() => highlight(l.id), 0); });
+      // Tapping a line selects it and shows its quote in the side panel (no floating popup on phones).
+      R.bindLinkPopover(hit, l, () => { R.hidePopover(true); selected = l.from; draw(); setTimeout(() => { highlight(l.id); scrollToLink(l.id); }, 0); });
     });
     const deg = {};
     links.forEach((l) => { deg[l.from] = (deg[l.from] || 0) + 1; deg[l.to] = (deg[l.to] || 0) + 1; });
     const ng = R.svgEl("g", {}, svg);
     Object.entries(nodes).forEach(([id, n]) => {
       const g = R.svgEl("g", { class: "map-node" + (selected && !near.has(id) ? " dim" : ""), transform: `translate(${p[id][0].toFixed(1)} ${p[id][1].toFixed(1)})`, tabindex: "0", role: "button", "aria-label": n.name }, ng);
-      const r = 4 + Math.min(8, (deg[id] || 0) * 0.9) + (id === selected ? 3 : 0);
+      const r = (4 + Math.min(8, (deg[id] || 0) * 0.9) + (id === selected ? 3 : 0)) * (small ? 1.8 : 1);
+      // Invisible, fingertip-sized tap area around every dot (and its name is tappable too).
+      R.svgEl("circle", { r: small ? 46 : 20, fill: "transparent" }, g);
       const c = R.svgEl("circle", { r, fill: `var(${R.layerVar(n)})`, filter: id === selected ? "url(#glow-map)" : "" }, g);
       if (n.kind !== "company") { c.setAttribute("fill-opacity", "0.55"); c.setAttribute("stroke", `var(${R.layerVar(n)})`); }
-      const t = R.svgEl("text", { x: r + 5, y: 4, "font-size": small ? 24 : 14, fill: id === selected ? "var(--text)" : "var(--text-2)" }, g);
+      const t = R.svgEl("text", { x: r + 5, y: small ? 8 : 4, "font-size": small ? 26 : 14, fill: id === selected ? "var(--text)" : "var(--text-2)", class: "tap-label" }, g);
       t.textContent = n.kind === "company" && n.ticker && !/\d/.test(n.ticker) ? n.ticker : n.name;
-      const pick = () => { selected = id; draw(); };
+      const pick = () => { selected = id; draw(); if (small) R.qs("#side").scrollIntoView({ behavior: "smooth", block: "start" }); };
       g.addEventListener("click", pick);
       g.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
     });
     side();
+    renderList();
   }
   draw();
 })();

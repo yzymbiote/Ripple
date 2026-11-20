@@ -48,6 +48,14 @@ def build(conn: sqlite3.Connection, include_sample: bool = True) -> dict:
             "last_confirmed": r["last_confirmed"], "is_sample": bool(r["is_sample"]), "sources": sources,
         })
 
+    # Unnamed customers/suppliers with a disclosed share, approved as placeholders in review.
+    unnamed = [{
+        "company": r["filer_node"], "type": r["type"], "direction": r["direction"], "what": r["what"],
+        "share": r["share"], "quote": r["quote"], "url": r["url"], "doc_type": r["doc_type"], "published_at": r["published_at"],
+    } for r in conn.execute(
+        """SELECT c.*, d.url, d.doc_type, d.published_at FROM link_candidates c JOIN documents d ON d.id = c.document_id
+           WHERE c.status = 'placeholder' ORDER BY c.filer_node, c.share DESC""")]
+
     events = []
     for r in conn.execute(f"SELECT * FROM events WHERE status IN ('analysed','published'){sample_clause} "
                           "ORDER BY started_at DESC, id DESC"):
@@ -82,7 +90,7 @@ def build(conn: sqlite3.Connection, include_sample: bool = True) -> dict:
     return {
         "generated_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "contains_sample_data": has_sample,
-        "nodes": nodes, "links": links, "events": events,
+        "nodes": nodes, "links": links, "events": events, "unnamed": unnamed,
     }
 
 

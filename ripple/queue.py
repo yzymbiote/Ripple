@@ -245,7 +245,8 @@ def import_results(conn: sqlite3.Connection, results: dict | None = None) -> dic
             report["ignored"].append(f"job2 answer for unknown task {ans.get('task_id')}")
             continue
         event_id = jobs.store_event_check(conn, task["document_id"], list(task["matched_nodes"]), ans)
-        report["job2"].append({"task_id": task["task_id"], "event_id": event_id})
+        news_links = jobs.store_news_links(conn, task["document_id"], task["text"], ans.get("links", []))
+        report["job2"].append({"task_id": task["task_id"], "event_id": event_id, "news_links": news_links})
 
     job3 = {t["task_id"]: t for t in queue["job3_ripple_explainer"]}
     for ans in results.get("job3", []):

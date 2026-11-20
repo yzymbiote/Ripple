@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS link_candidates (
     quote           TEXT NOT NULL,
     quote_verified  INTEGER NOT NULL DEFAULT 0,
     status          TEXT NOT NULL DEFAULT 'needs_review'
-                    CHECK (status IN ('linked','needs_review','rejected')),
+                    CHECK (status IN ('linked','needs_review','rejected','placeholder')),
     reason          TEXT,
     link_id         TEXT REFERENCES links(id),
     created_at      TEXT NOT NULL DEFAULT (datetime('now'))

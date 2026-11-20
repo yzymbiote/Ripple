@@ -13,7 +13,7 @@
 {"document_id": "doc_000007", "id": 194, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000008", "id": 195, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000009", "id": 196, "keyword_hits": 72, "processed": 1, "section": "item_1"}
-{"document_id": "doc_000009", "id": 197, "keyword_hits": 254, "processed": 0, "section": "item_1a"}
+{"document_id": "doc_000009", "id": 197, "keyword_hits": 254, "processed": 1, "section": "item_1a"}
 {"document_id": "doc_000009", "id": 198, "keyword_hits": 46, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000010", "id": 199, "keyword_hits": 225, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000010", "id": 200, "keyword_hits": 21, "processed": 0, "section": "customer_concentration"}
@@ -27,7 +27,7 @@
 {"document_id": "doc_000015", "id": 208, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000016", "id": 209, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000017", "id": 210, "keyword_hits": 52, "processed": 1, "section": "item_1"}
-{"document_id": "doc_000017", "id": 211, "keyword_hits": 211, "processed": 0, "section": "item_1a"}
+{"document_id": "doc_000017", "id": 211, "keyword_hits": 211, "processed": 1, "section": "item_1a"}
 {"document_id": "doc_000017", "id": 212, "keyword_hits": 67, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000018", "id": 213, "keyword_hits": 52, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000018", "id": 214, "keyword_hits": 37, "processed": 0, "section": "customer_concentration"}
@@ -56,7 +56,7 @@
 {"document_id": "doc_000034", "id": 237, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000035", "id": 238, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000036", "id": 239, "keyword_hits": 0, "processed": 0, "section": "full"}
-{"document_id": "doc_000037", "id": 240, "keyword_hits": 30, "processed": 0, "section": "item_1"}
+{"document_id": "doc_000037", "id": 240, "keyword_hits": 30, "processed": 1, "section": "item_1"}
 {"document_id": "doc_000037", "id": 241, "keyword_hits": 65, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000037", "id": 242, "keyword_hits": 32, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000038", "id": 243, "keyword_hits": 23, "processed": 0, "section": "customer_concentration"}
@@ -72,7 +72,7 @@
 {"document_id": "doc_000047", "id": 253, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000048", "id": 254, "keyword_hits": 2, "processed": 0, "section": "full"}
 {"document_id": "doc_000049", "id": 255, "keyword_hits": 0, "processed": 0, "section": "full"}
-{"document_id": "doc_000050", "id": 256, "keyword_hits": 25, "processed": 0, "section": "item_1"}
+{"document_id": "doc_000050", "id": 256, "keyword_hits": 25, "processed": 1, "section": "item_1"}
 {"document_id": "doc_000050", "id": 257, "keyword_hits": 106, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000050", "id": 258, "keyword_hits": 13, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000051", "id": 259, "keyword_hits": 0, "processed": 0, "section": "item_1a"}
@@ -91,7 +91,7 @@
 {"document_id": "doc_000060", "id": 272, "keyword_hits": 1, "processed": 0, "section": "full"}
 {"document_id": "doc_000061", "id": 273, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000062", "id": 274, "keyword_hits": 2, "processed": 0, "section": "full"}
-{"document_id": "doc_000063", "id": 275, "keyword_hits": 22, "processed": 0, "section": "item_1"}
+{"document_id": "doc_000063", "id": 275, "keyword_hits": 22, "processed": 1, "section": "item_1"}
 {"document_id": "doc_000063", "id": 276, "keyword_hits": 57, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000063", "id": 277, "keyword_hits": 18, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000064", "id": 278, "keyword_hits": 17, "processed": 0, "section": "item_1a"}
@@ -110,7 +110,7 @@
 {"document_id": "doc_000073", "id": 291, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000074", "id": 292, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000075", "id": 293, "keyword_hits": 0, "processed": 0, "section": "full"}
-{"document_id": "doc_000076", "id": 294, "keyword_hits": 19, "processed": 0, "section": "item_1"}
+{"document_id": "doc_000076", "id": 294, "keyword_hits": 19, "processed": 1, "section": "item_1"}
 {"document_id": "doc_000076", "id": 295, "keyword_hits": 76, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000076", "id": 296, "keyword_hits": 9, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000077", "id": 297, "keyword_hits": 76, "processed": 0, "section": "item_1a"}
@@ -130,7 +130,7 @@
 {"document_id": "doc_000087", "id": 311, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000088", "id": 312, "keyword_hits": 2, "processed": 0, "section": "full"}
 {"document_id": "doc_000089", "id": 313, "keyword_hits": 63, "processed": 1, "section": "item_1"}
-{"document_id": "doc_000089", "id": 314, "keyword_hits": 292, "processed": 0, "section": "item_1a"}
+{"document_id": "doc_000089", "id": 314, "keyword_hits": 292, "processed": 1, "section": "item_1a"}
 {"document_id": "doc_000089", "id": 315, "keyword_hits": 76, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000090", "id": 316, "keyword_hits": 330, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000090", "id": 317, "keyword_hits": 70, "processed": 1, "section": "customer_concentration"}
@@ -203,7 +203,7 @@
 {"document_id": "doc_000139", "id": 384, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000140", "id": 385, "keyword_hits": 1, "processed": 0, "section": "full"}
 {"document_id": "doc_000141", "id": 386, "keyword_hits": 1, "processed": 0, "section": "full"}
-{"document_id": "doc_000142", "id": 387, "keyword_hits": 13, "processed": 0, "section": "item_1"}
+{"document_id": "doc_000142", "id": 387, "keyword_hits": 13, "processed": 1, "section": "item_1"}
 {"document_id": "doc_000142", "id": 388, "keyword_hits": 44, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000142", "id": 389, "keyword_hits": 17, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000143", "id": 390, "keyword_hits": 2, "processed": 0, "section": "item_1a"}
@@ -258,7 +258,7 @@
 {"document_id": "doc_000178", "id": 439, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000179", "id": 440, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000180", "id": 441, "keyword_hits": 0, "processed": 0, "section": "full"}
-{"document_id": "doc_000181", "id": 442, "keyword_hits": 19, "processed": 0, "section": "item_1"}
+{"document_id": "doc_000181", "id": 442, "keyword_hits": 19, "processed": 1, "section": "item_1"}
 {"document_id": "doc_000181", "id": 443, "keyword_hits": 40, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000181", "id": 444, "keyword_hits": 17, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000182", "id": 445, "keyword_hits": 0, "processed": 0, "section": "item_1a"}
@@ -277,7 +277,7 @@
 {"document_id": "doc_000191", "id": 458, "keyword_hits": 1, "processed": 0, "section": "full"}
 {"document_id": "doc_000192", "id": 459, "keyword_hits": 3, "processed": 0, "section": "full"}
 {"document_id": "doc_000193", "id": 460, "keyword_hits": 0, "processed": 0, "section": "full"}
-{"document_id": "doc_000194", "id": 461, "keyword_hits": 26, "processed": 0, "section": "item_1"}
+{"document_id": "doc_000194", "id": 461, "keyword_hits": 26, "processed": 1, "section": "item_1"}
 {"document_id": "doc_000194", "id": 462, "keyword_hits": 28, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000194", "id": 463, "keyword_hits": 18, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000195", "id": 464, "keyword_hits": 0, "processed": 0, "section": "item_1a"}
@@ -296,7 +296,7 @@
 {"document_id": "doc_000204", "id": 477, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000205", "id": 478, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000206", "id": 479, "keyword_hits": 0, "processed": 0, "section": "full"}
-{"document_id": "doc_000207", "id": 480, "keyword_hits": 7, "processed": 0, "section": "item_1"}
+{"document_id": "doc_000207", "id": 480, "keyword_hits": 7, "processed": 1, "section": "item_1"}
 {"document_id": "doc_000207", "id": 481, "keyword_hits": 46, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000207", "id": 482, "keyword_hits": 4, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000208", "id": 483, "keyword_hits": 48, "processed": 0, "section": "item_1a"}
@@ -360,7 +360,7 @@
 {"document_id": "doc_000254", "id": 541, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000255", "id": 542, "keyword_hits": 0, "processed": 0, "section": "full"}
 {"document_id": "doc_000256", "id": 543, "keyword_hits": 98, "processed": 1, "section": "item_1"}
-{"document_id": "doc_000256", "id": 544, "keyword_hits": 215, "processed": 0, "section": "item_1a"}
+{"document_id": "doc_000256", "id": 544, "keyword_hits": 215, "processed": 1, "section": "item_1a"}
 {"document_id": "doc_000256", "id": 545, "keyword_hits": 54, "processed": 1, "section": "customer_concentration"}
 {"document_id": "doc_000257", "id": 546, "keyword_hits": 0, "processed": 0, "section": "item_1a"}
 {"document_id": "doc_000257", "id": 547, "keyword_hits": 19, "processed": 0, "section": "customer_concentration"}

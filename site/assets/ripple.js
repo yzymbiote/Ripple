@@ -193,12 +193,7 @@
       if (e.link && !opts.compact) {
         const hit = el("line", { x1, y1, x2, y2, stroke: "transparent", "stroke-width": 16, class: "map-edge", tabindex: "0" }, g);
         hit.style.cursor = "help";
-        const show = (ev) => {
-          const r = ev.clientX != null ? [ev.clientX, ev.clientY] : (() => { const b = hit.getBoundingClientRect(); return [b.x + b.width / 2, b.y + b.height / 2]; })();
-          R.showPopover(R.linkPopoverHtml(e.link), r[0], r[1]);
-        };
-        hit.addEventListener("mousemove", show); hit.addEventListener("focus", show);
-        hit.addEventListener("mouseleave", R.hidePopover); hit.addEventListener("blur", R.hidePopover);
+        R.bindLinkPopover(hit, e.link);
       }
     });
 
@@ -226,6 +221,7 @@
       const rad = isSource ? (opts.compact ? 7 : 13) : (opts.compact ? 3.5 : 6) + (exposure / 100) * (opts.compact ? 9 : 18);
       const color = isSource ? "var(--accent)" : imp ? `var(${R.dirVar(imp.direction)})` : "var(--text-2)";
       const g = el("g", { class: "map-node", transform: `translate(${x.toFixed(1)} ${y.toFixed(1)})` }, nodeLayer);
+      if (!opts.compact) el("circle", { r: Math.max(rad * 2.2, 28).toFixed(1), fill: "transparent" }, g); // tap area
       const halo = el("circle", { r: (rad * 2.1).toFixed(1), fill: color, opacity: "0" }, g);
       const dot = el("circle", { r: rad.toFixed(1), fill: "var(--map-dim)", stroke: "var(--bg)", "stroke-width": opts.compact ? 1 : 2 }, g);
       const brightness = isSource ? 1 : 0.45 + 0.55 * Math.min(1, exposure / 60);
@@ -313,8 +309,7 @@
         "stroke-dasharray": l.confidence === "low" ? "4 5" : "none" }, eg);
       const hit = el("line", { x1: p[l.from][0], y1: p[l.from][1], x2: p[l.to][0], y2: p[l.to][1], stroke: "transparent", "stroke-width": 12 }, eg);
       hit.style.cursor = "help";
-      hit.addEventListener("mousemove", (ev) => R.showPopover(R.linkPopoverHtml(l), ev.clientX, ev.clientY));
-      hit.addEventListener("mouseleave", R.hidePopover);
+      R.bindLinkPopover(hit, l);
       void line;
     });
     const ng = el("g", {}, svg);
@@ -325,6 +320,7 @@
       const [x, y] = p[id];
       const g = el("g", { class: "map-node", transform: `translate(${x.toFixed(1)} ${y.toFixed(1)})` }, ng);
       const r = 4 + Math.min(7, (degree[id] || 0) * 0.8);
+      R.svgEl("circle", { r: 24, fill: "transparent" }, g); // fingertip-sized tap area
       if (hot.has(id)) el("circle", { class: "beacon", r: 6 }, g);
       const c = el("circle", { r, fill: `var(${R.layerVar(n)})`, class: "pulse-node", filter: hot.has(id) ? "url(#glow-hero)" : "" }, g);
       if (n.kind !== "company") { c.setAttribute("fill-opacity", "0.55"); c.setAttribute("stroke", `var(${R.layerVar(n)})`); }

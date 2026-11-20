@@ -71,6 +71,11 @@ Read `text`. `matched_nodes` lists the map nodes it mentions (id → name).
 - `severity`: 1 (minor, local, short) to 5 (major, global, months), or `null` if not an event.
 - `affected_nodes`: ids from `matched_nodes` that are directly hit. **Only ids from that list.**
 - `one_line`: one plain sentence describing it.
+- `links` (optional): if the item **states** a supply relationship between two companies, places or materials
+  (e.g. "Samsung wins Nvidia HBM4 order"), list it: `{"from_party": "Samsung", "to_party": "Nvidia", "type": "supplies",
+  "what": "HBM4", "quote": "<copied word for word from text>"}`. Use the same four types as job 1; for `supplies`,
+  `from_party` sells to `to_party`. Only what the text states. Most items have none — then leave `links` out or empty.
+  News links are always stored as medium confidence and wait for review.
 
 ### Job 3 — Ripple explainer (for each task in `job3_ripple_explainer`)
 
@@ -107,7 +112,7 @@ Write **`ai_work/results.json`** in exactly this shape (copy `queue_id` from the
   ],
   "job2": [
     {"task_id": "doc_000456", "is_event": false, "event_type": null, "severity": null,
-     "affected_nodes": [], "one_line": "Analyst raises price target on Micron."}
+     "affected_nodes": [], "one_line": "Analyst raises price target on Micron.", "links": []}
   ],
   "job3": [
     {"task_id": "evt_0007", "impacts": [

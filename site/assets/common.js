@@ -54,6 +54,7 @@
     if (!s) return "—";
     const d = new Date(s.length === 7 ? s + "-01" : s);
     if (isNaN(d)) return s;
+    if (s.length === 7) return d.toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" }); // month only known
     return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" });
   }
   function daysSince(s) { const d = new Date(s); return isNaN(d) ? null : Math.floor((Date.now() - d) / 864e5); }
@@ -82,19 +83,50 @@
     return `${esc(node(l.from).name)} ${LINK_VERB[l.type] || l.type} ${esc(node(l.to).name)}${l.what ? " · " + esc(l.what) : ""}`;
   }
 
-  /* Popover: shows a link's source quote when hovering a line in a diagram. */
-  let pop;
-  function showPopover(html, x, y) {
-    if (!pop) { pop = document.createElement("div"); pop.className = "popover"; pop.setAttribute("role", "tooltip"); document.body.appendChild(pop); }
-    pop.innerHTML = html;
-    const pad = 14, r = pop.getBoundingClientRect();
+  /* Popover: shows a link's source quote.
+     Mouse: appears while hovering a line. Touch: tap a line to open it; it has a close button and
+     closes when you tap anywhere else or scroll, so it never gets stuck over the page. */
+  let pop, pinned = false;
+  function ensurePop() {
+    if (pop) return pop;
+    pop = document.createElement("div"); pop.className = "popover"; pop.setAttribute("role", "dialog");
+    document.body.appendChild(pop);
+    document.addEventListener("pointerdown", (e) => { if (pinned && !pop.contains(e.target) && !e.target.closest(".link-hit")) hidePopover(true); }, true);
+    window.addEventListener("scroll", () => hidePopover(true), { passive: true });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") hidePopover(true); });
+    return pop;
+  }
+  function showPopover(html, x, y, pin) {
+    ensurePop();
+    pinned = !!pin;
+    pop.innerHTML = (pin ? '<button class="pop-close" type="button" aria-label="Close">×</button>' : "") + html;
+    pop.classList.toggle("pinned", pinned);
+    const pad = 14, w = Math.min(340, window.innerWidth - 16);
+    pop.style.maxWidth = w + "px";
+    const r = pop.getBoundingClientRect();
     let left = x + pad, top = y + pad;
-    if (left + 340 > window.innerWidth) left = Math.max(8, x - 340 - pad);
-    if (top + r.height > window.innerHeight) top = Math.max(8, y - r.height - pad);
+    if (left + w > window.innerWidth - 8) left = Math.max(8, x - w - pad);
+    if (left < 8) left = 8;
+    if (top + r.height > window.innerHeight - 8) top = Math.max(8, y - r.height - pad);
     pop.style.left = left + "px"; pop.style.top = top + "px";
     pop.classList.add("show");
+    if (pin) pop.querySelector(".pop-close").addEventListener("click", () => hidePopover(true));
   }
-  function hidePopover() { if (pop) pop.classList.remove("show"); }
+  function hidePopover(force) {
+    if (!pop || (pinned && force !== true)) return;
+    pinned = false;
+    pop.classList.remove("show", "pinned");
+  }
+  /* Attach the quote popover to a line in a diagram. */
+  function bindLinkPopover(hit, link, onTap) {
+    hit.classList.add("link-hit");
+    hit.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse") showPopover(linkPopoverHtml(link), e.clientX, e.clientY); });
+    hit.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") hidePopover(); });
+    hit.addEventListener("click", (e) => {
+      if (onTap) return onTap(e);
+      showPopover(linkPopoverHtml(link), e.clientX, e.clientY, true);
+    });
+  }
   function linkPopoverHtml(l) {
     const s = (l.sources || [])[0];
     const quote = s ? `<q>${esc(s.quote)}</q>` : "<em>No source stored.</em>";
@@ -140,7 +172,7 @@
 
   window.Ripple = Object.assign(window.Ripple || {}, {
     D, esc, qs, param, reducedMotion, cssVar, layerVar, dirVar, dirMark, node, nodeUrl, badge, severityBar,
-    fmtDate, isStale, pct, sparkline, linkById, linkSentence, showPopover, hidePopover, linkPopoverHtml, chrome,
+    fmtDate, isStale, pct, sparkline, linkById, linkSentence, showPopover, hidePopover, bindLinkPopover, linkPopoverHtml, chrome,
     LAYER_LABEL, KIND_LABEL, TYPE_LABEL, LINK_VERB, DIR_WORD,
   });
 })();

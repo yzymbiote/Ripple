@@ -7,9 +7,9 @@ def test_seed_has_38_companies_and_about_50_nodes(conn):
     companies = conn.execute("SELECT COUNT(*) FROM nodes WHERE kind='company'").fetchone()[0]
     total = conn.execute("SELECT COUNT(*) FROM nodes").fetchone()[0]
     sec = conn.execute("SELECT COUNT(*) FROM nodes WHERE json_extract(extra,'$.filer')='sec'").fetchone()[0]
-    assert companies == 38
+    assert companies >= 38  # the 38 from the build plan, plus "next ring" partners added later
     assert sec == 23
-    assert 45 <= total <= 55
+    assert total >= 51
 
 
 def _doc(conn):
