@@ -78,6 +78,7 @@
         <select aria-label="Node on the map"><option value="">Match to a node on the map…</option>${nodeOptions(null)}</select>
         ${c.other_party ? '<label class="muted" style="font-size:13px"><input type="checkbox" checked> remember this name</label>' : ""}
         <button class="btn btn-approve" data-act="link">Make it a link (pending)</button>
+        ${!c.other_party && c.share != null ? '<button class="btn" data-act="placeholder">Show as unnamed on the company page</button>' : ""}
         <button class="btn btn-reject" data-act="reject">Reject</button><span class="err"></span></div>
     </article>`;
   }
@@ -116,6 +117,7 @@
     }
     const cid = card.dataset.cand;
     if (act === "reject") return post(`/api/candidate/${cid}`, { action: "reject" }, card);
+    if (act === "placeholder") return post(`/api/candidate/${cid}`, { action: "placeholder" }, card);
     if (act === "link") {
       const node = card.querySelector("select").value;
       if (!node) { card.querySelector(".err").textContent = "Pick a node first."; return; }

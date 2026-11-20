@@ -291,3 +291,34 @@ def run(conn, job: str, dry_run: bool = False, limit: int = 5, event_id: str | N
     if job == "check-events":
         return run_event_checker(conn, dry_run, limit)
     return run_ripple_explainer(conn, event_id=event_id, dry_run=dry_run)
+
+
+def store_news_links(conn: sqlite3.Connection, document_id: str, item_text: str, links: list[dict]) -> dict:
+    """Relationships reported in a news item (job 2 extra). Same checks as filings, but
+    news only ever counts as MEDIUM confidence, and both companies must be on the map."""
+    names = NameIndex(conn)
+    doc = conn.execute("SELECT published_at FROM documents WHERE id=?", (document_id,)).fetchone()
+    stats = {"linked": 0, "skipped": 0}
+    for item in links or []:
+        if item.get("type") not in ("supplies", "makes_in", "uses", "produces") or not quote_in_text(item.get("quote", ""), item_text):
+            stats["skipped"] += 1
+            continue
+        a, b = names.match(item.get("from_party")), names.match(item.get("to_party"))
+        if not a or not b or a == b:
+            stats["skipped"] += 1
+            continue
+        date = doc["published_at"] if doc else _today()
+        row = conn.execute("SELECT id FROM links WHERE from_node=? AND to_node=? AND type=? AND is_sample=0", (a, b, item["type"])).fetchone()
+        if row:
+            link_id = row["id"]
+            conn.execute("UPDATE links SET last_confirmed=MAX(COALESCE(last_confirmed,''), ?) WHERE id=?", (date, link_id))
+        else:
+            link_id = db.next_id(conn, "links", "link")
+            conn.execute("""INSERT INTO links (id, from_node, to_node, type, what, share, confidence, status, first_seen, last_confirmed)
+                            VALUES (?,?,?,?,?,NULL,'medium','pending_review',?,?)""",
+                         (link_id, a, b, item["type"], item.get("what"), date, date))
+        conn.execute("INSERT OR IGNORE INTO link_sources (link_id, document_id, quote, quote_verified) VALUES (?,?,?,1)",
+                     (link_id, document_id, item["quote"]))
+        stats["linked"] += 1
+    conn.commit()
+    return stats

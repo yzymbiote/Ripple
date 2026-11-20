@@ -81,6 +81,12 @@ def act_on_candidate(conn, cand_id: int, body: dict) -> dict:
     action = body.get("action")
     if action == "reject":
         conn.execute("UPDATE link_candidates SET status='rejected', reason=COALESCE(reason,'') || ' | rejected in review' WHERE id=?", (cand_id,))
+    elif action == "placeholder":
+        # An unnamed customer/supplier with a disclosed share ("one customer = 22% of revenue"):
+        # shown on the company's page as an unnamed placeholder, as the build plan asks.
+        if c["other_party"] or c["share"] is None or not c["quote_verified"]:
+            return {"error": "only unnamed parties with a disclosed share and a verified quote can be shown as placeholders"}
+        conn.execute("UPDATE link_candidates SET status='placeholder' WHERE id=?", (cand_id,))
     elif action == "link":
         other = body.get("other_node")
         if not conn.execute("SELECT 1 FROM nodes WHERE id=?", (other,)).fetchone():

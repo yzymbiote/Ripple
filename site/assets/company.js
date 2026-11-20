@@ -29,13 +29,28 @@
   };
   const block = (title, note, items) => `<section class="section"><div class="section-head"><h2>${title}</h2><span class="muted mono">${items.length}</span></div>
       ${note ? `<p class="muted" style="margin-top:-6px">${note}</p>` : ""}
-      ${items.length ? `<div class="link-grid">${items.join("")}</div>` : '<p class="empty">Nothing on the map yet.</p>'}</section>`;
+      ${items.length ? `<div class="link-grid">${items.join("")}</div>` : '<p class="empty">None found in its filings yet. The map is still being built: new filings are read every night.</p>'}</section>`;
+
+  // Customers/suppliers the filing describes only by size ("one customer = 22% of revenue").
+  const unnamedBlock = () => {
+    const rows = (D.unnamed || []).filter((u) => u.company === id);
+    if (!rows.length) return "";
+    return `<section class="section"><div class="section-head"><h2>Unnamed customers and suppliers</h2><span class="muted mono">${rows.length}</span></div>
+      <p class="muted" style="margin-top:-6px">The filing gives their size but not their name. Who they are is one of the map's open questions.</p>
+      <div class="link-grid">${rows.map((u) => `<article class="card link-card">
+        <div class="top"><b>${u.direction === "other_to_filer" ? "An unnamed supplier" : "An unnamed customer"}</b><span class="mono" style="font-size:18px">${u.share}%</span></div>
+        <div style="font-size:13px" class="muted">${u.direction === "other_to_filer" ? "of supply" : "of " + esc(n.name) + "'s revenue"}${u.what ? " · " + esc(u.what) : ""}</div>
+        <blockquote>${esc(u.quote)}</blockquote>
+        <div class="foot"><span>${u.url ? `<a href="${esc(u.url)}" rel="noopener">${esc(u.doc_type || "source")} ${esc(u.published_at || "")}</a>` : ""} · <span class="verified">✓ quote verified</span></span></div>
+      </article>`).join("")}</div></section>`;
+  };
 
   let sections;
   if (isCo) {
     sections = [
       block("Suppliers", "Companies that sell to " + esc(n.name) + ".", inn.filter((l) => l.type === "supplies").map((l) => linkCard(l, l.from, "supplies " + n.name))),
       block("Customers", "Companies " + esc(n.name) + " sells to.", out.filter((l) => l.type === "supplies").map((l) => linkCard(l, l.to, "buys from " + n.name))),
+      unnamedBlock(),
       block("Places and materials it depends on", "", out.filter((l) => l.type === "uses" || l.type === "makes_in").map((l) => linkCard(l, l.to, l.type === "uses" ? "uses" : "makes things in"))),
       block("What it produces", "", out.filter((l) => l.type === "produces").map((l) => linkCard(l, l.to, "produces"))),
     ];

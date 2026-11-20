@@ -92,3 +92,15 @@ def test_explainer_output_is_checked(conn):
     assert result["dropped_invented"] == ["hubbell"]
     row = conn.execute("SELECT * FROM impacts WHERE event_id='evt_sample_0001' AND node_id='tsmc'").fetchone()
     assert row["confidence"] == "low"  # general knowledge -> low confidence
+
+
+def test_news_links_are_medium_confidence_and_checked(conn):
+    conn.execute("INSERT INTO documents (id, source, doc_type, published_at, collected_at, text) "
+                 "VALUES ('doc_000020','gdelt','news','2026-11-19','2026-11-19','Samsung wins Nvidia HBM4 order\\nSource: x')")
+    out = jobs.store_news_links(conn, "doc_000020", "Samsung wins Nvidia HBM4 order", [
+        {"from_party": "Samsung", "to_party": "Nvidia", "type": "supplies", "what": "HBM4", "quote": "Samsung wins Nvidia HBM4 order"},
+        {"from_party": "Samsung", "to_party": "Apple", "type": "supplies", "quote": "Samsung wins Nvidia HBM4 order"},  # Apple not on map
+        {"from_party": "Micron", "to_party": "Nvidia", "type": "supplies", "quote": "Micron ships HBM to Nvidia"}]) # not in text
+    assert out == {"linked": 1, "skipped": 2}
+    row = conn.execute("SELECT * FROM links").fetchone()
+    assert (row["from_node"], row["to_node"], row["confidence"], row["status"]) == ("samsung", "nvidia", "medium", "pending_review")
