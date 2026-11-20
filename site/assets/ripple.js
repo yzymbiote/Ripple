@@ -284,7 +284,8 @@
         disp[id][0] += (a[0] * w * 0.5 - p[id][0]) * 0.9; disp[id][1] += (a[1] * h * 0.5 - p[id][1]) * 0.9;
         const d = Math.max(1, Math.hypot(...disp[id]));
         p[id][0] += (disp[id][0] / d) * Math.min(d, temp); p[id][1] += (disp[id][1] / d) * Math.min(d, temp);
-        p[id][0] = Math.max(-w / 2 + 30, Math.min(w / 2 - 30, p[id][0])); p[id][1] = Math.max(-h / 2 + 20, Math.min(h / 2 - 20, p[id][1]));
+        // keep room on the right for the name next to each dot
+        p[id][0] = Math.max(-w / 2 + 30, Math.min(w / 2 - 150, p[id][0])); p[id][1] = Math.max(-h / 2 + 30, Math.min(h / 2 - 30, p[id][1]));
       });
     }
     return p;

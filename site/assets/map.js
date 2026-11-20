@@ -84,9 +84,13 @@
       nodes = Object.fromEntries(Object.entries(visible).filter(([id]) => keep.has(id)));
     }
     const links = D.mapLinks.filter((l) => nodes[l.from] && nodes[l.to]);
-    const w = 1000, h = small ? 1000 : 640;
+    const w = 1000, h = small ? 1500 : 640;
     box.innerHTML = "";
     svg = R.svgEl("svg", { viewBox: `${-w / 2} ${-h / 2} ${w} ${h}`, role: "img", "aria-label": "Supply map" }, box);
+    // Tapping empty space (not a dot or a line) resets the map.
+    svg.addEventListener("click", (e) => {
+      if (selected && !e.target.closest(".map-node") && !e.target.closest(".link-hit")) { selected = null; draw(); }
+    });
     R.svgDefs(svg, "map");
     const p = R.layoutMap(nodes, links, w, h);
     const near = new Set();
@@ -105,6 +109,22 @@
     });
     const deg = {};
     links.forEach((l) => { deg[l.from] = (deg[l.from] || 0) + 1; deg[l.to] = (deg[l.to] || 0) + 1; });
+    // Decide which names to show: no two names may overlap. The selected company and its
+    // partners always get theirs; otherwise better-connected dots win. Hidden-name dots stay tappable.
+    const fsz = small ? 24 : 14;
+    const showLabel = new Set();
+    const boxes = [];
+    const order = Object.keys(nodes).sort((a, b) => (near.has(b) - near.has(a)) || ((deg[b] || 0) - (deg[a] || 0)) || a.localeCompare(b));
+    const labelText = (n) => (n.kind === "company" && n.ticker && !/\d/.test(n.ticker) ? n.ticker : n.name.replace(/\s*\(.*\)\s*$/, ""));
+    const dotR = small ? 16 : 9;
+    const dots = Object.keys(nodes).map((id) => ({ id, x1: p[id][0] - dotR, y1: p[id][1] - dotR, x2: p[id][0] + dotR, y2: p[id][1] + dotR }));
+    const overlaps = (a, b) => a.x1 < b.x2 && a.x2 > b.x1 && a.y1 < b.y2 && a.y2 > b.y1;
+    order.forEach((id) => {
+      const n = nodes[id], [x, y] = p[id];
+      const bx = { x1: x + 8, y1: y - fsz * 0.75, x2: x + 12 + labelText(n).length * fsz * 0.62, y2: y + fsz * 0.45 };
+      const hit = boxes.some((b) => overlaps(bx, b)) || dots.some((d) => d.id !== id && overlaps(bx, d));
+      if (!hit || id === selected) { showLabel.add(id); boxes.push(bx); }
+    });
     const ng = R.svgEl("g", {}, svg);
     Object.entries(nodes).forEach(([id, n]) => {
       const g = R.svgEl("g", { class: "map-node" + (selected && !near.has(id) ? " dim" : ""), transform: `translate(${p[id][0].toFixed(1)} ${p[id][1].toFixed(1)})`, tabindex: "0", role: "button", "aria-label": n.name }, ng);
@@ -113,14 +133,24 @@
       R.svgEl("circle", { r: small ? 46 : 20, fill: "transparent" }, g);
       const c = R.svgEl("circle", { r, fill: `var(${R.layerVar(n)})`, filter: id === selected ? "url(#glow-map)" : "" }, g);
       if (n.kind !== "company") { c.setAttribute("fill-opacity", "0.55"); c.setAttribute("stroke", `var(${R.layerVar(n)})`); }
-      const t = R.svgEl("text", { x: r + 5, y: small ? 8 : 4, "font-size": small ? 26 : 14, fill: id === selected ? "var(--text)" : "var(--text-2)", class: "tap-label" }, g);
-      t.textContent = n.kind === "company" && n.ticker && !/\d/.test(n.ticker) ? n.ticker : n.name;
-      const pick = () => { selected = id; draw(); if (small) R.qs("#side").scrollIntoView({ behavior: "smooth", block: "start" }); };
+      if (showLabel.has(id)) {
+        const t = R.svgEl("text", { x: r + 5, y: small ? 8 : 4, "font-size": fsz, fill: id === selected ? "var(--text)" : "var(--text-2)", class: "tap-label" }, g);
+        t.textContent = labelText(n);
+      }
+      const pick = () => {
+        if (selected === id) { selected = null; draw(); return; } // tap the selected dot again to unselect
+        selected = id; draw();
+        if (small) R.qs("#side").scrollIntoView({ behavior: "smooth", block: "start" });
+      };
       g.addEventListener("click", pick);
       g.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
     });
     side();
     renderList();
+    const clearBtn = R.qs("#clear-sel");
+    clearBtn.hidden = !selected;
   }
+  R.qs("#clear-sel").addEventListener("click", () => { selected = null; draw(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && selected) { selected = null; draw(); } });
   draw();
 })();
