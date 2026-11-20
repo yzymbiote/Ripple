@@ -2,7 +2,7 @@
 
 ## Summary of the latest session (zero-cost AI setup)
 
-All 9 steps you asked for are done, committed and pushed on branch `claude/awesome-maxwell-57hsme`, and there's a pull request into `main` (link at the bottom of this summary).
+All 9 steps you asked for are done, committed and pushed on branch `claude/awesome-maxwell-57hsme`, and there's a pull request into `main` (https://github.com/yzymbiote/Ripple/pull/1).
 
 **One important correction first.** The website was **not** actually in GitHub before today. The starting `.gitignore` (GitHub's standard Python template) silently ignores any folder called `site/`, so the website files were never committed, although my last summary said they were pushed. I've removed that line, and the whole website is in GitHub now. The details are in DECISIONS.md, item 75.
 
@@ -37,7 +37,7 @@ What's new:
 8. **GitHub Pages workflow.** The site gets a free public address after you merge and switch on Pages: https://yzymbiote.github.io/Ripple/. Sample data stays clearly labelled SAMPLE until real approved links and events exist, then disappears by itself.
 9. **Pull request** opened from the branch into `main` (link below).
 
-There are 37 automated tests, and all pass. Every assumption is numbered in **DECISIONS.md** (items 47–75 are new). The pull request link is in the final message of this session.
+There are 37 automated tests, and all pass. Every assumption is numbered in **DECISIONS.md** (items 47–75 are new). Pull request: https://github.com/yzymbiote/Ripple/pull/1
 
 ---
 
