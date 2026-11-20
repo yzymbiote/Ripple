@@ -1,0 +1,22 @@
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 28px 0 10px; border-bottom: 1px solid var(--border); }
+.tab { background: none; border: 0; border-bottom: 2px solid transparent; color: var(--text-2); font: 500 14px var(--sans); padding: 10px 12px; cursor: pointer; }
+.tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+.tab b { font: 500 12px var(--mono); color: var(--accent-text); margin-left: 4px; }
+.review-list { display: grid; gap: 14px; margin-top: 12px; }
+.rv { padding: 18px 20px; display: grid; gap: 12px; }
+.rv-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+.rv-claim { font-size: 17px; font-weight: 600; }
+.rv-claim .verb { color: var(--accent-text); font-weight: 500; }
+.rv blockquote { margin: 0; font-family: var(--serif); font-size: 16px; line-height: 1.55; border-left: 2px solid var(--accent); padding-left: 14px; }
+.rv .meta { font: 12px var(--mono); color: var(--text-2); display: flex; gap: 14px; flex-wrap: wrap; }
+.rv .actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.btn-approve { border-color: var(--helped); color: var(--helped-text); }
+.btn-reject { border-color: var(--hurt); color: var(--hurt-text); }
+.btn:disabled { opacity: .5; cursor: default; }
+.edit { display: none; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; padding: 12px; background: var(--panel-2); border-radius: 8px; }
+.edit.open { display: grid; }
+.edit label { display: grid; gap: 4px; font: 11px var(--mono); color: var(--text-2); text-transform: uppercase; letter-spacing: .06em; }
+.edit select, .edit input, .rv select { font: 14px var(--sans); color: var(--text); background: var(--panel); border: 1px solid var(--border-strong); border-radius: 6px; padding: 6px 8px; }
+.status-pill { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; padding: 3px 8px; border-radius: 999px; border: 1px solid currentColor; }
+.status-pending_review { color: var(--unclear-text); } .status-approved { color: var(--helped-text); } .status-rejected { color: var(--hurt-text); }
+.err { color: var(--hurt-text); font-size: 13px; }
