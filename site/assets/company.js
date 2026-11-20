@@ -11,7 +11,7 @@
   if (!n) { main.innerHTML = '<div class="wrap"><p class="empty">Not on the map.</p></div>'; return; }
   document.title = `${n.name} — Ripple`;
 
-  const out = D.links.filter((l) => l.from === id), inn = D.links.filter((l) => l.to === id);
+  const out = D.mapLinks.filter((l) => l.from === id), inn = D.mapLinks.filter((l) => l.to === id);
   const isCo = n.kind === "company";
 
   const linkCard = (l, otherId, verb) => {
