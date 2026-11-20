@@ -23,7 +23,23 @@ KEYWORDS = [
     "customer", "supplier", "sole source", "single source", "sole-source", "single-source",
     "% of revenue", "% of net revenue", "% of net sales", "% of total revenue", "depend",
     "manufactured by", "foundry", "foundries", "subcontract", "vendor", "concentration",
+    # Korean
+    "고객", "매출처", "공급", "거래처", "원재료", "의존",
+    # Japanese
+    "販売先", "仕入先", "顧客", "依存", "原材料", "調達",
 ]
+
+# Korean / Japanese report headings: (section, start heading, end headings)
+CJK_SECTIONS = {
+    "annual_report_kr": [("item_1", r"II\.\s*사업의\s*내용", [r"III\.\s*재무에\s*관한\s*사항"])],
+    "half_year_report_kr": [("item_1", r"II\.\s*사업의\s*내용", [r"III\.\s*재무에\s*관한\s*사항"])],
+    "quarterly_report_kr": [("item_1", r"II\.\s*사업의\s*내용", [r"III\.\s*재무에\s*관한\s*사항"])],
+    "annual_report_jp": [("item_1", r"事業の内容", [r"関係会社の状況", r"従業員の状況"]),
+                         ("item_1a", r"事業等のリスク", [r"経営者による", r"研究開発活動"])],
+    "half_year_report_jp": [("item_1a", r"事業等のリスク", [r"経営者による", r"経営上の重要な契約"])],
+}
+_CJK_RELATION = re.compile(r"고객|매출처|공급|거래처|販売先|仕入先|顧客|供給|調達")
+_CJK_SHARE = re.compile(r"\d+(?:\.\d+)?\s*[%％]|비중|의존|割合|依存|主要")
 
 _HEADING = re.compile(r"(?im)^[ \t]*(?:part\s+i+\s*[,.\-–—]?\s*)?item[ \t ]*(\d{1,2}[a-d]?)\b[ \t]*[.:\-–—]?")
 _RISK_20F = re.compile(r"(?im)^[ \t]*(?:item\s*)?(?:3\.)?\s*D\.?[ \t]*risk[ \t]+factors\b|^[ \t]*risk[ \t]+factors[ \t]*$")
@@ -78,8 +94,31 @@ def concentration_sentences(text: str, max_sentences: int = 80) -> str:
     return "\n".join(out)
 
 
+def _cut_by_regex(text: str, start_pat: str, end_pats: list[str]) -> str:
+    """Longest chunk from a start heading to the next end heading (skips tables of contents)."""
+    best = ""
+    ends = [m.start() for p in end_pats for m in re.finditer(p, text)]
+    for m in re.finditer(start_pat, text):
+        end = min((e for e in ends if e > m.start()), default=None)
+        if end is not None and end - m.start() > len(best):
+            best = text[m.start():end]
+    return best.strip()
+
+
+def cjk_concentration(text: str, max_sentences: int = 80) -> str:
+    sentences = re.split(r"(?<=[。.!?])\s*", re.sub(r"\s+", " ", text))
+    out = [s.strip() for s in sentences if 10 <= len(s.strip()) <= 600 and _CJK_RELATION.search(s) and _CJK_SHARE.search(s)]
+    return "\n".join(dict.fromkeys(out[:max_sentences]))
+
+
 def cut(text: str, doc_type: str) -> dict[str, str]:
     """Return {section_name: text} for one document."""
+    if doc_type in CJK_SECTIONS or doc_type.endswith(("_kr", "_jp")):
+        out = {name: _cut_by_regex(text, a, b) for name, a, b in CJK_SECTIONS.get(doc_type, [])}
+        if len(text) <= SHORT_DOC_LIMIT and not doc_type.startswith("annual"):
+            out["full"] = text
+        out["customer_concentration"] = cjk_concentration(text)
+        return {k: v for k, v in out.items() if v}
     heads = _headings(text)
     out: dict[str, str] = {}
     dt = doc_type.upper()
@@ -101,9 +140,10 @@ def cut(text: str, doc_type: str) -> dict[str, str]:
 def cut_all(conn: sqlite3.Connection, redo: bool = False) -> int:
     if redo:
         conn.execute("DELETE FROM document_sections WHERE processed = 0")
+        conn.execute("DELETE FROM document_sections WHERE document_id IN (SELECT id FROM documents WHERE source='sample')")
     docs = conn.execute(
         """SELECT id, doc_type, text FROM documents d
-           WHERE text IS NOT NULL AND NOT EXISTS (SELECT 1 FROM document_sections s WHERE s.document_id = d.id)"""
+           WHERE text IS NOT NULL AND source != 'sample' AND NOT EXISTS (SELECT 1 FROM document_sections s WHERE s.document_id = d.id)"""
     ).fetchall()
     for d in docs:
         for name, body in cut(d["text"], d["doc_type"]).items():

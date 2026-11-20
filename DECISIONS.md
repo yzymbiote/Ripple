@@ -56,3 +56,10 @@ Choices I made while you were away, so you can check or reverse them.
 39. Job 1 can also run through the **Message Batches API** (half price, results within a day): `python -m ripple ai extract-links-batch --limit 500`, then `python -m ripple ai collect-batch --batch-id ...`.
 40. Tokens for every call are logged in the `ai_usage` table.
 41. Model choice: jobs 1 and 2 on `claude-haiku-5-5` and job 3 on `claude-opus-5-5`, as you asked. Each can be changed in `.env` (`RIPPLE_MODEL_LINK_EXTRACTOR`, etc.).
+
+## OpenDART and EDINET collectors
+42. **Switched off by default**, like the AI jobs: each needs its key *and* its on-switch (`RIPPLE_OPENDART_ENABLED=1`, `RIPPLE_EDINET_ENABLED=1`). Tested only with fake API responses, because I had no keys and was told not to sign up for anything.
+43. **OpenDART** collects, per Korean company: the latest annual report, the last 4 half-year/quarterly reports, and supply-contract disclosures (단일판매ㆍ공급계약체결) from the last year. The company's DART number is looked up from its stock code using DART's official company list.
+44. **EDINET** lists filings day by day, so the first run walks back 400 days (to be sure to catch the latest annual report) and later runs only scan the days since the last run (saved in `data/raw/edinet/state.json`). It keeps annual, half-year, older quarterly, and extraordinary reports from our 5 Japanese companies. The Japanese "securities code" used to recognise them is the 4-digit ticker plus a 0 (e.g. Ibiden 4062 → 40620).
+45. Korean and Japanese filings are stored **in the original language**. The section cutter finds 사업의 내용 (business) in Korean reports and 事業の内容 / 事業等のリスク (business / risks) in Japanese ones, plus sentences about customers/suppliers with a share. The link extractor is told to answer in English but copy quotes in the original language, so the word-for-word check runs against the original text.
+46. Taiwan's MOPS (Unimicron, plus monthly revenue for TSMC/ASE) and the manual PDF folder for the European companies are not built yet — they were not in today's list.
