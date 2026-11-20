@@ -221,3 +221,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ripple
+.env
+data/ripple.db
+data/ripple.db-*
+data/raw/

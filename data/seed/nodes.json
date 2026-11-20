@@ -1,0 +1,62 @@
+{
+  "_comment": "Seed list for the Ripple map. Companies come from 'The map' table in the build plan; roles are a starting point written from general knowledge and must be checked against each company's own filings. sec_cik is the SEC company number (checked against SEC's own ticker list by `python -m ripple sec-verify`). dart_stock_code / edinet_sec_code are used to look the company up in the Korean / Japanese filing systems.",
+  "companies": [
+    {"id": "sk_hynix", "name": "SK hynix", "layer": "memory", "ticker": "000660.KS", "country": "KR", "aliases": ["SK Hynix Inc.", "SK hynix Inc.", "Hynix", "하이닉스", "에스케이하이닉스"], "notes": "Leading maker of high-bandwidth memory (HBM) for AI chips", "filer": "opendart", "dart_stock_code": "000660"},
+    {"id": "samsung", "name": "Samsung Electronics", "layer": "memory", "ticker": "005930.KS", "country": "KR", "aliases": ["Samsung Electronics Co., Ltd.", "Samsung", "삼성전자"], "notes": "Memory, HBM, and contract chipmaking", "filer": "opendart", "dart_stock_code": "005930"},
+    {"id": "micron", "name": "Micron Technology", "layer": "memory", "ticker": "MU", "country": "US", "aliases": ["Micron Technology, Inc.", "Micron"], "notes": "Memory, including HBM", "filer": "sec", "sec_cik": 723125},
+
+    {"id": "tsmc", "name": "TSMC", "layer": "packaging", "ticker": "TSM", "country": "TW", "aliases": ["Taiwan Semiconductor Manufacturing Company Limited", "Taiwan Semiconductor Manufacturing Co., Ltd.", "Taiwan Semiconductor", "2330.TW", "台積電"], "notes": "Makes most AI chips; runs CoWoS advanced packaging", "filer": "sec", "sec_cik": 1046179},
+    {"id": "ase", "name": "ASE Technology", "layer": "packaging", "ticker": "ASX", "country": "TW", "aliases": ["ASE Technology Holding Co., Ltd.", "ASE Group", "Advanced Semiconductor Engineering", "SPIL", "3711.TW", "日月光"], "notes": "Outsourced chip packaging and testing", "filer": "sec", "sec_cik": 1122411},
+    {"id": "amkor", "name": "Amkor Technology", "layer": "packaging", "ticker": "AMKR", "country": "US", "aliases": ["Amkor Technology, Inc.", "Amkor"], "notes": "Outsourced chip packaging and testing", "filer": "sec", "sec_cik": 1047127},
+    {"id": "ibiden", "name": "Ibiden", "layer": "packaging", "ticker": "4062.T", "country": "JP", "aliases": ["Ibiden Co., Ltd.", "イビデン"], "notes": "Substrates (the base boards AI chips sit on)", "filer": "edinet", "edinet_sec_code": "40620"},
+    {"id": "unimicron", "name": "Unimicron", "layer": "packaging", "ticker": "3037.TW", "country": "TW", "aliases": ["Unimicron Technology Corp.", "欣興電子", "欣興"], "notes": "Substrates", "filer": "mops"},
+    {"id": "ajinomoto", "name": "Ajinomoto", "layer": "packaging", "ticker": "2802.T", "country": "JP", "aliases": ["Ajinomoto Co., Inc.", "Ajinomoto Fine-Techno", "味の素"], "notes": "ABF film, the insulating layer inside substrates", "filer": "edinet", "edinet_sec_code": "28020"},
+    {"id": "besi", "name": "BE Semiconductor (Besi)", "layer": "packaging", "ticker": "BESI.AS", "country": "NL", "aliases": ["BE Semiconductor Industries N.V.", "Besi"], "notes": "Hybrid bonding machines for stacking chips", "filer": "ir_pdf"},
+    {"id": "hanmi", "name": "Hanmi Semiconductor", "layer": "packaging", "ticker": "042700.KS", "country": "KR", "aliases": ["Hanmi Semiconductor Co., Ltd.", "한미반도체"], "notes": "Bonding machines used to stack HBM", "filer": "opendart", "dart_stock_code": "042700"},
+    {"id": "disco", "name": "Disco", "layer": "packaging", "ticker": "6146.T", "country": "JP", "aliases": ["DISCO Corporation", "ディスコ"], "notes": "Wafer cutting and grinding tools", "filer": "edinet", "edinet_sec_code": "61460"},
+    {"id": "advantest", "name": "Advantest", "layer": "packaging", "ticker": "6857.T", "country": "JP", "aliases": ["Advantest Corporation", "アドバンテスト"], "notes": "Chip testing machines", "filer": "edinet", "edinet_sec_code": "68570"},
+    {"id": "teradyne", "name": "Teradyne", "layer": "packaging", "ticker": "TER", "country": "US", "aliases": ["Teradyne, Inc."], "notes": "Chip testing machines", "filer": "sec", "sec_cik": 97210},
+    {"id": "applied_materials", "name": "Applied Materials", "layer": "packaging", "ticker": "AMAT", "country": "US", "aliases": ["Applied Materials, Inc."], "notes": "Chipmaking and packaging equipment", "filer": "sec", "sec_cik": 6951},
+
+    {"id": "ge_vernova", "name": "GE Vernova", "layer": "power", "ticker": "GEV", "country": "US", "aliases": ["GE Vernova Inc.", "GE Vernova LLC"], "notes": "Gas turbines and grid equipment", "filer": "sec", "sec_cik": 1996810},
+    {"id": "siemens_energy", "name": "Siemens Energy", "layer": "power", "ticker": "ENR.DE", "country": "DE", "aliases": ["Siemens Energy AG", "Siemens Gamesa"], "notes": "Turbines and transformers", "filer": "ir_pdf"},
+    {"id": "hitachi", "name": "Hitachi (Hitachi Energy)", "layer": "power", "ticker": "6501.T", "country": "JP", "aliases": ["Hitachi, Ltd.", "Hitachi Energy", "Hitachi Energy Ltd", "日立製作所"], "notes": "Transformers and grid equipment", "filer": "edinet", "edinet_sec_code": "65010"},
+    {"id": "hd_hyundai_electric", "name": "HD Hyundai Electric", "layer": "power", "ticker": "267260.KS", "country": "KR", "aliases": ["HD Hyundai Electric Co., Ltd.", "Hyundai Electric", "HD현대일렉트릭"], "notes": "Transformers", "filer": "opendart", "dart_stock_code": "267260"},
+    {"id": "eaton", "name": "Eaton", "layer": "power", "ticker": "ETN", "country": "US", "aliases": ["Eaton Corporation plc", "Eaton Corp"], "notes": "Switchgear and power distribution", "filer": "sec", "sec_cik": 1551182},
+    {"id": "schneider", "name": "Schneider Electric", "layer": "power", "ticker": "SU.PA", "country": "FR", "aliases": ["Schneider Electric SE"], "notes": "Data center power and cooling", "filer": "ir_pdf"},
+    {"id": "hubbell", "name": "Hubbell", "layer": "power", "ticker": "HUBB", "country": "US", "aliases": ["Hubbell Incorporated"], "notes": "Grid components", "filer": "sec", "sec_cik": 48898},
+    {"id": "vertiv", "name": "Vertiv", "layer": "power", "ticker": "VRT", "country": "US", "aliases": ["Vertiv Holdings Co", "Vertiv Group"], "notes": "Data center power and liquid cooling", "filer": "sec", "sec_cik": 1674101},
+    {"id": "quanta", "name": "Quanta Services", "layer": "power", "ticker": "PWR", "country": "US", "aliases": ["Quanta Services, Inc."], "notes": "Builds grid connections for data centers", "filer": "sec", "sec_cik": 1050915},
+    {"id": "prysmian", "name": "Prysmian", "layer": "power", "ticker": "PRY.MI", "country": "IT", "aliases": ["Prysmian S.p.A.", "Prysmian Group"], "notes": "High-voltage power cables", "filer": "ir_pdf"},
+
+    {"id": "linde", "name": "Linde", "layer": "materials", "ticker": "LIN", "country": "IE", "aliases": ["Linde plc", "Linde AG", "Praxair"], "notes": "Industrial gases, including helium", "filer": "sec", "sec_cik": 1707925},
+    {"id": "air_products", "name": "Air Products", "layer": "materials", "ticker": "APD", "country": "US", "aliases": ["Air Products and Chemicals, Inc."], "notes": "Industrial gases, including helium", "filer": "sec", "sec_cik": 2969},
+    {"id": "qatarenergy", "name": "QatarEnergy", "layer": "materials", "ticker": null, "country": "QA", "aliases": ["Qatar Energy", "Qatar Petroleum", "QatarEnergy LNG", "RasGas", "Qatargas"], "notes": "Major helium and LNG producer (state-owned)", "filer": "none"},
+    {"id": "freeport", "name": "Freeport-McMoRan", "layer": "materials", "ticker": "FCX", "country": "US", "aliases": ["Freeport-McMoRan Inc.", "Freeport"], "notes": "Copper", "filer": "sec", "sec_cik": 831259},
+    {"id": "albemarle", "name": "Albemarle", "layer": "materials", "ticker": "ALB", "country": "US", "aliases": ["Albemarle Corporation"], "notes": "Bromine (used in chip etching)", "filer": "sec", "sec_cik": 915913},
+
+    {"id": "nvidia", "name": "Nvidia", "layer": "buyers", "ticker": "NVDA", "country": "US", "aliases": ["NVIDIA Corporation", "NVIDIA"], "notes": "AI chips", "filer": "sec", "sec_cik": 1045810},
+    {"id": "amd", "name": "AMD", "layer": "buyers", "ticker": "AMD", "country": "US", "aliases": ["Advanced Micro Devices, Inc.", "Advanced Micro Devices"], "notes": "AI chips", "filer": "sec", "sec_cik": 2488},
+    {"id": "broadcom", "name": "Broadcom", "layer": "buyers", "ticker": "AVGO", "country": "US", "aliases": ["Broadcom Inc."], "notes": "Custom AI chips for cloud companies", "filer": "sec", "sec_cik": 1730168},
+    {"id": "microsoft", "name": "Microsoft", "layer": "buyers", "ticker": "MSFT", "country": "US", "aliases": ["Microsoft Corporation", "Azure"], "notes": "Builds AI data centers", "filer": "sec", "sec_cik": 789019},
+    {"id": "alphabet", "name": "Alphabet", "layer": "buyers", "ticker": "GOOGL", "country": "US", "aliases": ["Alphabet Inc.", "Google", "Google LLC", "Google Cloud"], "notes": "Builds AI data centers", "filer": "sec", "sec_cik": 1652044},
+    {"id": "amazon", "name": "Amazon", "layer": "buyers", "ticker": "AMZN", "country": "US", "aliases": ["Amazon.com, Inc.", "Amazon Web Services", "AWS"], "notes": "Builds AI data centers", "filer": "sec", "sec_cik": 1018724},
+    {"id": "meta", "name": "Meta", "layer": "buyers", "ticker": "META", "country": "US", "aliases": ["Meta Platforms, Inc.", "Facebook"], "notes": "Builds AI data centers", "filer": "sec", "sec_cik": 1326801},
+    {"id": "oracle", "name": "Oracle", "layer": "buyers", "ticker": "ORCL", "country": "US", "aliases": ["Oracle Corporation", "Oracle Cloud Infrastructure", "OCI"], "notes": "Builds AI data centers", "filer": "sec", "sec_cik": 1341439}
+  ],
+  "places_and_materials": [
+    {"id": "helium", "kind": "material", "name": "Helium", "country": null, "aliases": ["He", "liquid helium", "helium gas"], "notes": "Inert gas used to cool and purge chipmaking tools; hard to substitute"},
+    {"id": "hbm", "kind": "part", "name": "HBM", "country": null, "aliases": ["high-bandwidth memory", "high bandwidth memory", "HBM3", "HBM3E", "HBM4"], "notes": "Stacked memory that sits next to AI chips"},
+    {"id": "abf_film", "kind": "material", "name": "ABF film", "country": null, "aliases": ["Ajinomoto Build-up Film", "build-up film", "ABF"], "notes": "Insulating film inside chip substrates"},
+    {"id": "transformers", "kind": "part", "name": "Transformers", "country": null, "aliases": ["power transformers", "large power transformers", "LPT", "transformer"], "notes": "Grid equipment that steps voltage up or down; long lead times"},
+    {"id": "copper", "kind": "material", "name": "Copper", "country": null, "aliases": ["copper cathode", "copper concentrate"], "notes": "Wiring, cables and busbars"},
+    {"id": "bromine", "kind": "material", "name": "Bromine", "country": null, "aliases": ["hydrogen bromide", "HBr"], "notes": "Used in chip etching gases"},
+    {"id": "lng", "kind": "material", "name": "LNG", "country": null, "aliases": ["liquefied natural gas", "natural gas"], "notes": "Fuel for power plants; Asian power prices track it"},
+    {"id": "cowos", "kind": "part", "name": "CoWoS packaging", "country": null, "aliases": ["CoWoS", "Chip-on-Wafer-on-Substrate", "advanced packaging", "2.5D packaging"], "notes": "TSMC's advanced packaging that joins AI chips to HBM"},
+    {"id": "ras_laffan", "kind": "place", "name": "Ras Laffan", "country": "QA", "aliases": ["Ras Laffan Industrial City", "Ras Laffan hub"], "notes": "Qatar's gas hub; about a third of world helium supply"},
+    {"id": "qatar", "kind": "place", "name": "Qatar", "country": "QA", "aliases": ["State of Qatar"], "notes": "Country"},
+    {"id": "korea", "kind": "place", "name": "South Korea", "country": "KR", "aliases": ["Korea", "Republic of Korea", "ROK"], "notes": "Country; home of SK hynix and Samsung memory fabs"},
+    {"id": "taiwan", "kind": "place", "name": "Taiwan", "country": "TW", "aliases": ["Republic of China", "ROC"], "notes": "Country; home of most leading-edge chip fabs and CoWoS lines"},
+    {"id": "japan", "kind": "place", "name": "Japan", "country": "JP", "aliases": [], "notes": "Country; substrates, ABF film, test and cutting tools"}
+  ]
+}
