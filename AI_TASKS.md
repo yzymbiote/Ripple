@@ -16,8 +16,10 @@ git checkout main && git pull
 ```
 
 ```bash
-pip install -q -r requirements.txt
+python -m pip install -q -r requirements.txt
 ```
+
+(Use `python -m pip`, not plain `pip`: on some machines `pip` installs into a different Python than `python` runs.)
 
 ```bash
 python -m ripple ai-status
