@@ -612,6 +612,66 @@
    "last_confirmed": "2026-01-15",
    "id": "link_sample_051",
    "quote": "SAMPLE: samsung uses bromine (etching gases)."
+  },
+  {
+   "from_node": "vertiv",
+   "to_node": "transformers",
+   "type": "uses",
+   "what": "transformers",
+   "share": null,
+   "confidence": "medium",
+   "first_seen": "2025-05-01",
+   "last_confirmed": "2025-11-20",
+   "id": "link_sample_052",
+   "quote": "SAMPLE: vertiv uses transformers (transformers)."
+  },
+  {
+   "from_node": "quanta",
+   "to_node": "microsoft",
+   "type": "supplies",
+   "what": "grid connections for data centers",
+   "share": null,
+   "confidence": "medium",
+   "first_seen": "2025-05-01",
+   "last_confirmed": "2025-11-20",
+   "id": "link_sample_053",
+   "quote": "SAMPLE: quanta supplies microsoft (grid connections for data centers)."
+  },
+  {
+   "from_node": "quanta",
+   "to_node": "meta",
+   "type": "supplies",
+   "what": "grid connections for data centers",
+   "share": null,
+   "confidence": "low",
+   "first_seen": "2025-05-01",
+   "last_confirmed": "2025-11-20",
+   "id": "link_sample_054",
+   "quote": "SAMPLE: quanta supplies meta (grid connections for data centers)."
+  },
+  {
+   "from_node": "eaton",
+   "to_node": "transformers",
+   "type": "produces",
+   "what": "transformers",
+   "share": null,
+   "confidence": "medium",
+   "first_seen": "2025-05-01",
+   "last_confirmed": "2025-11-20",
+   "id": "link_sample_055",
+   "quote": "SAMPLE: eaton produces transformers (transformers)."
+  },
+  {
+   "from_node": "eaton",
+   "to_node": "amazon",
+   "type": "supplies",
+   "what": "switchgear and power distribution",
+   "share": null,
+   "confidence": "low",
+   "first_seen": "2025-05-01",
+   "last_confirmed": "2025-11-20",
+   "id": "link_sample_056",
+   "quote": "SAMPLE: eaton supplies amazon (switchgear and power distribution)."
   }
  ]
 }

@@ -1,0 +1,96 @@
+{
+  "_comment": "HAND-MADE SAMPLE EVENTS for building the website before real data exists. The explanations below imitate what the ripple explainer (AI job 3) will write, but they were written by hand and rest only on the SAMPLE links. Price moves in 'followups' are made up. Everything here is stored with is_sample=1 and shown with a SAMPLE label.",
+  "events": [
+    {
+      "id": "evt_sample_0001",
+      "title": "Strikes knock out Qatar's Ras Laffan gas hub",
+      "one_line": "About a third of the world's helium goes offline; Korean and Taiwanese fabs start rationing.",
+      "event_type": "disruption",
+      "affected_nodes": ["ras_laffan", "helium"],
+      "severity": 5,
+      "started_at": "2026-03-04",
+      "trace_before": "2026-03-01",
+      "summary": "Missile and drone strikes halted gas processing at Ras Laffan, which supplies roughly a third of the world's helium. Chip fabs need helium to cool and purge their tools, and the sample map shows TSMC, Samsung and SK hynix all depend on it. Because those three make most AI chips and most high-bandwidth memory, the shortage could travel on to Nvidia and AMD and then to the cloud companies building AI data centers. Industrial gas companies with helium from other sources, such as Linde and Air Products, may gain from higher prices. How bad it gets depends mostly on how much helium the fabs had stored, which the map does not know.",
+      "biggest_unknowns": [
+        "How many weeks of helium each fab keeps in storage",
+        "Which fabs buy Qatari helium versus US or Russian helium",
+        "Whether Micron's fabs outside Korea and Taiwan use Qatari helium"
+      ],
+      "sources": [
+        {"title": "SAMPLE source: news report of the Ras Laffan strikes", "url": null, "date": "2026-03-04"}
+      ],
+      "impacts": {
+        "tsmc": {"direction": "hurt", "how_much": "high", "why": "Uses helium across its Taiwan fabs and CoWoS lines, and sits at the centre of AI chip supply.", "timing": "weeks", "confidence": "medium", "what_would_change_this": "TSMC confirming it holds several months of helium in storage."},
+        "samsung": {"direction": "hurt", "how_much": "high", "why": "Korean memory fabs depend on imported helium; rationing would slow output.", "timing": "weeks", "confidence": "medium", "what_would_change_this": "Samsung sourcing most of its helium outside Qatar."},
+        "sk_hynix": {"direction": "hurt", "how_much": "high", "why": "Makes most of the world's HBM in Korea, where fabs began rationing helium.", "timing": "weeks", "confidence": "medium", "what_would_change_this": "Evidence that HBM lines are prioritised for helium."},
+        "nvidia": {"direction": "hurt", "how_much": "medium", "why": "Depends on TSMC for chips and packaging and on SK hynix and Samsung for HBM.", "timing": "a quarter", "confidence": "medium", "what_would_change_this": "Suppliers reporting no output loss."},
+        "amd": {"direction": "hurt", "how_much": "medium", "why": "Same chip and memory suppliers as Nvidia, with smaller volumes.", "timing": "a quarter", "confidence": "medium", "what_would_change_this": "AMD shifting more HBM to Micron."},
+        "micron": {"direction": "unclear", "how_much": "low", "why": "Could gain as an alternative HBM source, or lose if its own fabs rely on Qatari helium. The only link is low confidence.", "timing": "a quarter", "confidence": "low", "what_would_change_this": "Knowing where Micron's helium comes from."},
+        "microsoft": {"direction": "hurt", "how_much": "low", "why": "Three steps away: fewer AI chips could slow data center build-outs.", "timing": "a year", "confidence": "low", "what_would_change_this": "Nvidia meeting its delivery schedule."},
+        "meta": {"direction": "hurt", "how_much": "low", "why": "Buys AI chips from Nvidia; a long, indirect path.", "timing": "a year", "confidence": "low", "what_would_change_this": "Nvidia meeting its delivery schedule."},
+        "alphabet": {"direction": "hurt", "how_much": "low", "why": "Gets custom chips through Broadcom and TSMC; a long, indirect path.", "timing": "a year", "confidence": "low", "what_would_change_this": "TSMC output holding up."},
+        "linde": {"direction": "helped", "how_much": "medium", "why": "Sells helium from other sources; higher spot prices could lift revenue.", "timing": "weeks", "confidence": "low", "what_would_change_this": "Linde's own helium supply also depending on Qatar."},
+        "air_products": {"direction": "helped", "how_much": "medium", "why": "Sells helium from other sources; higher spot prices could lift revenue.", "timing": "weeks", "confidence": "low", "what_would_change_this": "Long-term contracts that lock in old prices."}
+      },
+      "followups": {
+        "tsmc": {"1d": -2.1, "1w": -4.8, "1m": -3.2},
+        "samsung": {"1d": -1.6, "1w": -3.9, "1m": -5.1},
+        "sk_hynix": {"1d": -3.4, "1w": -6.2, "1m": -4.0},
+        "nvidia": {"1d": -1.2, "1w": -2.5, "1m": 0.8},
+        "linde": {"1d": 1.4, "1w": 2.9, "1m": 3.6},
+        "air_products": {"1d": 2.0, "1w": 3.1, "1m": 2.2}
+      }
+    },
+    {
+      "id": "evt_sample_0002",
+      "title": "Transformer lead times stretch past four years",
+      "one_line": "Grid equipment makers warn new orders won't ship before 2030, slowing data center hook-ups.",
+      "event_type": "shortage",
+      "affected_nodes": ["transformers"],
+      "severity": 3,
+      "started_at": "2026-10-12",
+      "summary": "Makers of large power transformers say new orders now take more than four years to deliver. Data centers cannot connect to the grid without them. On the sample map, Quanta and Vertiv depend on transformers to deliver their projects, so hook-ups for Microsoft and Meta could slip. Transformer makers such as HD Hyundai Electric, Hitachi, Siemens Energy and Eaton may benefit from stronger pricing.",
+      "biggest_unknowns": ["Which data center projects are waiting on transformer deliveries", "How much spare transformer stock utilities hold"],
+      "sources": [{"title": "SAMPLE source: industry survey of transformer lead times", "url": null, "date": "2026-10-12"}],
+      "impacts": {
+        "quanta": {"direction": "hurt", "how_much": "medium", "why": "Its grid-connection projects need transformers it does not make.", "timing": "a quarter", "confidence": "medium", "what_would_change_this": "Customers supplying transformers themselves."},
+        "vertiv": {"direction": "hurt", "how_much": "low", "why": "Some of its power systems include transformers bought from others.", "timing": "a quarter", "confidence": "medium", "what_would_change_this": "Vertiv making more transformers in-house."},
+        "microsoft": {"direction": "hurt", "how_much": "low", "why": "Data center hook-ups could slip if grid work is delayed.", "timing": "a year", "confidence": "low", "what_would_change_this": "Microsoft having reserved transformer capacity early."},
+        "eaton": {"direction": "helped", "how_much": "medium", "why": "Makes transformers; tight supply supports prices.", "timing": "a year", "confidence": "low", "what_would_change_this": "Eaton's own factories being full already."}
+      },
+      "followups": {"quanta": {"1d": -0.8, "1w": -1.1}, "eaton": {"1d": 1.2, "1w": 2.4}}
+    },
+    {
+      "id": "evt_sample_0003",
+      "title": "Power cut halts an SK hynix HBM line",
+      "one_line": "A short outage at a Korean fab interrupts high-bandwidth memory output for several days.",
+      "event_type": "disruption",
+      "affected_nodes": ["sk_hynix"],
+      "severity": 3,
+      "started_at": "2026-11-06",
+      "summary": "A power cut stopped one of SK hynix's HBM production lines in Korea for several days. SK hynix is the main HBM supplier to Nvidia and a supplier to AMD, so a long outage would squeeze AI chip output. Samsung and Micron, which also make HBM, could pick up orders. A few days of lost output is usually absorbed by inventory, so the effect may be small.",
+      "biggest_unknowns": ["How many days of HBM inventory Nvidia and AMD hold", "Whether the outage damaged wafers in progress"],
+      "sources": [{"title": "SAMPLE source: company statement on the outage", "url": null, "date": "2026-11-06"}],
+      "impacts": {
+        "nvidia": {"direction": "hurt", "how_much": "low", "why": "SK hynix is its main HBM supplier, but a few days of lost output is usually covered by stock.", "timing": "weeks", "confidence": "medium", "what_would_change_this": "The outage lasting more than two weeks."},
+        "samsung": {"direction": "helped", "how_much": "low", "why": "Also makes HBM and could take extra orders.", "timing": "a quarter", "confidence": "low", "what_would_change_this": "Samsung's HBM not being qualified for the same products."},
+        "micron": {"direction": "helped", "how_much": "low", "why": "Also makes HBM and could take extra orders.", "timing": "a quarter", "confidence": "low", "what_would_change_this": "Micron's HBM capacity already being sold out."}
+      },
+      "followups": {"sk_hynix": {"1d": -2.7, "1w": -1.0}, "micron": {"1d": 1.1, "1w": 1.9}}
+    },
+    {
+      "id": "evt_sample_0004",
+      "title": "Bromine export licences tightened",
+      "one_line": "New paperwork slows bromine shipments used in chip etching gases.",
+      "event_type": "policy",
+      "affected_nodes": ["bromine"],
+      "severity": 2,
+      "started_at": "2026-11-14",
+      "summary": "A major producing country added export licences for bromine, which is used to make etching gases for chipmaking. Only a weak, low-confidence link on the sample map connects this to a chipmaker, so the effect is likely small and slow.",
+      "biggest_unknowns": ["Which etching-gas suppliers sit between bromine producers and fabs"],
+      "sources": [{"title": "SAMPLE source: trade ministry notice", "url": null, "date": "2026-11-14"}],
+      "impacts": {},
+      "followups": {}
+    }
+  ]
+}

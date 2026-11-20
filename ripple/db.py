@@ -93,6 +93,7 @@ CREATE TABLE IF NOT EXISTS events (
     started_at        TEXT,
     source_documents  TEXT NOT NULL DEFAULT '[]',  -- JSON list of document ids
     status            TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new','analysed','published')),
+    one_line          TEXT,
     summary           TEXT,
     biggest_unknowns  TEXT NOT NULL DEFAULT '[]',  -- JSON list
     is_sample         INTEGER NOT NULL DEFAULT 0
@@ -175,8 +176,17 @@ def connect(path: Path | str | None = None) -> sqlite3.Connection:
     return conn
 
 
+# Columns added after the first version; added to older databases automatically.
+_LATE_COLUMNS = {"events": {"one_line": "TEXT"}}
+
+
 def init(conn: sqlite3.Connection) -> None:
     conn.executescript(SCHEMA)
+    for table, cols in _LATE_COLUMNS.items():
+        have = {r["name"] for r in conn.execute(f"PRAGMA table_info({table})")}
+        for col, typ in cols.items():
+            if col not in have:
+                conn.execute(f"ALTER TABLE {table} ADD COLUMN {col} {typ}")
     conn.commit()
 
 
