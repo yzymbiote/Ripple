@@ -48,7 +48,8 @@ SUPPLY_WORDS = re.compile(
     re.I)
 
 
-def excerpt(text: str, names: NameIndex | None = None, limit: int = MAX_JOB1_CHARS_PER_SECTION) -> str:
+def excerpt(text: str, names: NameIndex | None = None, limit: int = MAX_JOB1_CHARS_PER_SECTION,
+            seen: set | None = None) -> str:
     """Keep only the paragraphs that talk about customers, suppliers, sources or map nodes.
 
     The excerpt is cut from the section word for word, so any quote copied from it
@@ -65,6 +66,11 @@ def excerpt(text: str, names: NameIndex | None = None, limit: int = MAX_JOB1_CHA
     out, total = [], 0
     for i in keep:
         p = paras[i].strip()
+        if seen is not None:
+            key = re.sub(r"\W+", " ", p.lower())[:300]
+            if key in seen:
+                continue  # same paragraph already queued today (quarterly reports repeat the annual one)
+            seen.add(key)
         if total + len(p) > limit:
             break
         out.append(p)
@@ -80,14 +86,15 @@ def _job1_tasks(conn, names, max_sections, max_total_chars) -> list[dict]:
            WHERE s.processed = 0 AND s.keyword_hits > 0 AND s.text != '' AND d.source != 'sample'""").fetchall()
     def rank(r):
         annual = 0 if r["doc_type"] in ANNUAL_TYPES else 1
-        return (SECTION_PRIORITY.get(r["section"], 9), annual, -(r["keyword_hits"] or 0), r["id"])
+        return (annual, SECTION_PRIORITY.get(r["section"], 9), -(r["keyword_hits"] or 0), r["id"])
     tasks, total = [], 0
+    seen_by_company: dict = {}
     for r in sorted(rows, key=rank):
         if len(tasks) >= max_sections:
             break
         if r["section"] == "full" and (r["keyword_hits"] or 0) < 2:
             continue  # short 8-Ks with barely a mention of customers/suppliers aren't worth reading
-        text = excerpt(r["text"], names)
+        text = excerpt(r["text"], names, seen=seen_by_company.setdefault(r["company_id"], set()))
         if not text:
             # Nothing relevant inside: mark as read so it never comes back.
             conn.execute("UPDATE document_sections SET processed=1 WHERE id=?", (r["id"],))

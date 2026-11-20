@@ -1,3 +1,9 @@
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000022", "event_id": null, "result": "{\"task_id\": \"doc_000022\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Nvidia files its routine quarterly results announcement.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000026", "event_id": null, "result": "{\"task_id\": \"doc_000026\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"TSMC files a 6-K cover page with no supply chain news in the provided text.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000034", "event_id": null, "result": "{\"task_id\": \"doc_000034\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Vertiv raises its dividend.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000042", "event_id": null, "result": "{\"task_id\": \"doc_000042\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Air Products nominates a new board director.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000160", "event_id": null, "result": "{\"task_id\": \"doc_000160\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Freeport's Indonesian unit prices a $750 million bond offering to refinance debt.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000161", "event_id": null, "result": "{\"task_id\": \"doc_000161\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Freeport's Indonesian unit announces a planned bond offering.\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000290", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000291", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000292", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
@@ -11,10 +17,12 @@
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000300", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000301", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000302", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000303", "event_id": null, "result": "{\"task_id\": \"doc_000303\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"TSMC makes a small financial investment in Anthropic's IPO; no change to chip supply.\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000304", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000305", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000306", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000307", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000308", "event_id": null, "result": "{\"task_id\": \"doc_000308\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Stock-pick article arguing Micron is a memory stock to buy, citing Nvidia's larger supply commitments.\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000309", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000310", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
 {"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000311", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}

@@ -1,0 +1,197 @@
+{
+ "queue_id": "q20261120-135347",
+ "answered_by": "claude-code-session (first run, done by the build session)",
+ "job1": [
+  {
+   "task_id": "s339",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "chipmaking equipment",
+     "share": 19,
+     "quote": "During fiscal 2025, two customers accounted for approximately 19% and 15%, respectively, of our net revenue."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "chipmaking equipment",
+     "share": 15,
+     "quote": "During fiscal 2025, two customers accounted for approximately 19% and 15%, respectively, of our net revenue."
+    }
+   ]
+  },
+  {
+   "task_id": "s242",
+   "links": [
+    {
+     "type": "uses",
+     "direction": "filer_to_other",
+     "other_party": "helium",
+     "what": "crude helium for purification and resale",
+     "share": null,
+     "quote": "Our supply of crude helium for purification and resale is largely dependent upon natural gas production by crude helium suppliers."
+    }
+   ]
+  },
+  {
+   "task_id": "s425",
+   "links": [
+    {
+     "type": "produces",
+     "direction": "filer_to_other",
+     "other_party": "transformers",
+     "what": "transformers (Grid Solutions)",
+     "share": null,
+     "quote": "As of December 31, 2025, RPO increased $31.2 billion (26%) from December 31, 2024, primarily at Power, due to increases at Gas Power due to Heavy-Duty Gas Turbine and Aeroderivative equipment and contractual services, and increases at Steam Power services, Hydro Power equipment, and Nuclear Power equipment, partially offset by a decrease at Steam Power equipment; at Electrification, primarily due to demand for alternating current substation solutions, switchgear, and transformers at Grid Solutions and synchronous condensers and energy storage at Power Conversion & Storage; partially offset at Wind, due to a decrease at Offshore Wind as we continue to execute on our contracts and a decrease in orders at Onshore Wind as U.S. customers dealt with policy uncertainty."
+    }
+   ]
+  },
+  {
+   "task_id": "s277",
+   "links": []
+  },
+  {
+   "task_id": "s463",
+   "links": []
+  },
+  {
+   "task_id": "s389",
+   "links": []
+  },
+  {
+   "task_id": "s444",
+   "links": []
+  },
+  {
+   "task_id": "s407",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Mitsubishi Materials Corporation",
+     "what": "copper concentrate",
+     "share": null,
+     "quote": "For the three years ended December 31, 2025, the only customer that accounted for 10% or more of our consolidated revenues was Mitsubishi Materials Corporation, PTFI’s joint venture partner in PT Smelting (PTFI’s 66%-owned copper smelter and refinery), in 2024."
+    },
+    {
+     "type": "produces",
+     "direction": "filer_to_other",
+     "other_party": "copper",
+     "what": "refined copper",
+     "share": null,
+     "quote": "We are the leading copper supplier in the U.S., providing approximately 70% of total U.S. refined copper production through our integrated domestic mining and processing facilities, and most of which is sold domestically."
+    }
+   ]
+  },
+  {
+   "task_id": "s258",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "other_to_filer",
+     "other_party": "Windfield Holdings Pty",
+     "what": "lithium concentrate",
+     "share": null,
+     "quote": "We obtain lithium: (a) by purchasing lithium concentrate from our 49%-owned joint venture, Windfield Holdings Pty."
+    }
+   ]
+  },
+  {
+   "task_id": "s296",
+   "links": []
+  },
+  {
+   "task_id": "s482",
+   "links": []
+  },
+  {
+   "task_id": "s317",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Microsoft",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Sony",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    }
+   ]
+  },
+  {
+   "task_id": "s323",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Microsoft",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Sony",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    }
+   ]
+  },
+  {
+   "task_id": "s319",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Microsoft",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Sony",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    }
+   ]
+  },
+  {
+   "task_id": "s321",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Microsoft",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Sony",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    }
+   ]
+  }
+ ],
+ "job2": [],
+ "job3": []
+}

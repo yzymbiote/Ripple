@@ -1,0 +1,361 @@
+{
+ "queue_id": "q20261120-135148",
+ "answered_by": "claude-code-session (first run, done by the build session)",
+ "job1": [
+  {
+   "task_id": "s315",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Microsoft",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": "Sony",
+     "what": "semi-custom SoCs for game consoles",
+     "share": null,
+     "quote": "The success of our semi-custom SoC products in our Client and Gaming segment is dependent on securing customers for our semi-custom design pipeline and consumer market conditions, including the success of game console systems and next generation consoles for Sony and Microsoft."
+    }
+   ]
+  },
+  {
+   "task_id": "s212",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "other_to_filer",
+     "other_party": "Hon Hai Precision Industry Co., Ltd.",
+     "what": "assembly, testing and packaging",
+     "share": null,
+     "quote": "We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products."
+    },
+    {
+     "type": "supplies",
+     "direction": "other_to_filer",
+     "other_party": "Wistron Corporation",
+     "what": "assembly, testing and packaging",
+     "share": null,
+     "quote": "We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products."
+    },
+    {
+     "type": "supplies",
+     "direction": "other_to_filer",
+     "other_party": "Fabrinet",
+     "what": "assembly, testing and packaging",
+     "share": null,
+     "quote": "We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "Compute & Networking products",
+     "share": 22,
+     "quote": "For fiscal year 2026, sales to one direct customer represented 22% of total revenue and sales to another direct customer represented 14% of total revenue, all of which were primarily attributable to the Compute & Networking segment."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "Compute & Networking products",
+     "share": 14,
+     "quote": "For fiscal year 2026, sales to one direct customer represented 22% of total revenue and sales to another direct customer represented 14% of total revenue, all of which were primarily attributable to the Compute & Networking segment."
+    }
+   ]
+  },
+  {
+   "task_id": "s564",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "semiconductor test equipment",
+     "share": 19,
+     "quote": "The additional direct customer, a customer of our Semiconductor Test segment, accounted for 19% of consolidated revenues including certain revenues specified by other customers."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "semiconductor and product test equipment",
+     "share": 12,
+     "quote": "The two specifying customers were both customers of our Semiconductor Test and Product Test segments and drove 12% and 10% of consolidated revenues."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "semiconductor and product test equipment",
+     "share": 10,
+     "quote": "The two specifying customers were both customers of our Semiconductor Test and Product Test segments and drove 12% and 10% of consolidated revenues."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Denmark",
+     "what": "robotics production",
+     "share": null,
+     "quote": "The manufacturing activities for our Robotics businesses are done primarily in our production facilities in Denmark and the U.S."
+    }
+   ]
+  },
+  {
+   "task_id": "s370",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "other_to_filer",
+     "other_party": "TSMC",
+     "what": "wafers (made for Broadcom's contract manufacturers)",
+     "share": 95,
+     "quote": "During fiscal year 2025, approximately 95% of the wafers manufactured by our CMs were produced by TSMC."
+    }
+   ]
+  },
+  {
+   "task_id": "s545",
+   "links": [
+    {
+     "type": "uses",
+     "direction": "filer_to_other",
+     "other_party": "copper",
+     "what": "copper",
+     "share": null,
+     "quote": "We and our customers depend on the availability of certain materials for construction, upgrade, repair and maintenance of their infrastructure, including, among other things, steel, copper, aluminum, and components for electrical projects (e.g., power transformers, circuit breakers, wire) and power generation projects (e.g., solar panels, wind turbine blades, batteries)."
+    },
+    {
+     "type": "uses",
+     "direction": "filer_to_other",
+     "other_party": "power transformers",
+     "what": "power transformers",
+     "share": null,
+     "quote": "We and our customers depend on the availability of certain materials for construction, upgrade, repair and maintenance of their infrastructure, including, among other things, steel, copper, aluminum, and components for electrical projects (e.g., power transformers, circuit breakers, wire) and power generation projects (e.g., solar panels, wind turbine blades, batteries)."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "infrastructure services",
+     "share": 8,
+     "quote": "For the year ended December 31, 2025, our largest customer accounted for 8% of our consolidated revenues and our ten largest customers accounted for 30% of our consolidated revenues."
+    }
+   ]
+  },
+  {
+   "task_id": "s358",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "other_to_filer",
+     "other_party": "Unimicron Technology Corporation",
+     "what": "IC substrates",
+     "share": null,
+     "quote": "Raw materials such as IC substrates are prone to supply shortages since such materials are produced by a limited number of suppliers, such as Kinsus Interconnect Technology Corporation, Nan Ya Printed Circuit Board Corporation, and Unimicron Technology Corporation."
+    },
+    {
+     "type": "supplies",
+     "direction": "other_to_filer",
+     "other_party": "Kinsus Interconnect Technology Corporation",
+     "what": "IC substrates",
+     "share": null,
+     "quote": "Raw materials such as IC substrates are prone to supply shortages since such materials are produced by a limited number of suppliers, such as Kinsus Interconnect Technology Corporation, Nan Ya Printed Circuit Board Corporation, and Unimicron Technology Corporation."
+    },
+    {
+     "type": "supplies",
+     "direction": "other_to_filer",
+     "other_party": "Nan Ya Printed Circuit Board Corporation",
+     "what": "IC substrates",
+     "share": null,
+     "quote": "Raw materials such as IC substrates are prone to supply shortages since such materials are produced by a limited number of suppliers, such as Kinsus Interconnect Technology Corporation, Nan Ya Printed Circuit Board Corporation, and Unimicron Technology Corporation."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Taiwan",
+     "what": "packaging, testing and EMS operations",
+     "share": null,
+     "quote": "In addition to Taiwan, we have major operations in the following locations: • P.R.C. — a fast-growing market for semiconductor and electronics manufacturing; • South Korea — an important center for the manufacturing of memory and communications devices; • Malaysia, Singapore, the Philippines and Vietnam — each a center for outsourced semiconductor and electronics manufacturing in Southeast Asia; • Silicon Valley in California — the preeminent center for semiconductor design, with a concentration of fabless customers; • Japan — an emerging market for packaging and testing outsourcing services as Japanese IDMs increasingly outsource their semiconductor manufacturing requirements; • Mexico — a development and manufacturing center for electronic products across different industries with an auxiliary service depot to provide technical services; and • Europe — an original equipment manufacturing solutions center for the electronics industry that continues to grow, driven by the increasing demand for cost-competitive and flexible manufacturing solutions in various industries."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "South Korea",
+     "what": "packaging and testing operations",
+     "share": null,
+     "quote": "In addition to Taiwan, we have major operations in the following locations: • P.R.C. — a fast-growing market for semiconductor and electronics manufacturing; • South Korea — an important center for the manufacturing of memory and communications devices; • Malaysia, Singapore, the Philippines and Vietnam — each a center for outsourced semiconductor and electronics manufacturing in Southeast Asia; • Silicon Valley in California — the preeminent center for semiconductor design, with a concentration of fabless customers; • Japan — an emerging market for packaging and testing outsourcing services as Japanese IDMs increasingly outsource their semiconductor manufacturing requirements; • Mexico — a development and manufacturing center for electronic products across different industries with an auxiliary service depot to provide technical services; and • Europe — an original equipment manufacturing solutions center for the electronics industry that continues to grow, driven by the increasing demand for cost-competitive and flexible manufacturing solutions in various industries."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Japan",
+     "what": "packaging and testing operations",
+     "share": null,
+     "quote": "In addition to Taiwan, we have major operations in the following locations: • P.R.C. — a fast-growing market for semiconductor and electronics manufacturing; • South Korea — an important center for the manufacturing of memory and communications devices; • Malaysia, Singapore, the Philippines and Vietnam — each a center for outsourced semiconductor and electronics manufacturing in Southeast Asia; • Silicon Valley in California — the preeminent center for semiconductor design, with a concentration of fabless customers; • Japan — an emerging market for packaging and testing outsourcing services as Japanese IDMs increasingly outsource their semiconductor manufacturing requirements; • Mexico — a development and manufacturing center for electronic products across different industries with an auxiliary service depot to provide technical services; and • Europe — an original equipment manufacturing solutions center for the electronics industry that continues to grow, driven by the increasing demand for cost-competitive and flexible manufacturing solutions in various industries."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "P.R.C.",
+     "what": "semiconductor and electronics manufacturing",
+     "share": null,
+     "quote": "In addition to Taiwan, we have major operations in the following locations: • P.R.C. — a fast-growing market for semiconductor and electronics manufacturing; • South Korea — an important center for the manufacturing of memory and communications devices; • Malaysia, Singapore, the Philippines and Vietnam — each a center for outsourced semiconductor and electronics manufacturing in Southeast Asia; • Silicon Valley in California — the preeminent center for semiconductor design, with a concentration of fabless customers; • Japan — an emerging market for packaging and testing outsourcing services as Japanese IDMs increasingly outsource their semiconductor manufacturing requirements; • Mexico — a development and manufacturing center for electronic products across different industries with an auxiliary service depot to provide technical services; and • Europe — an original equipment manufacturing solutions center for the electronics industry that continues to grow, driven by the increasing demand for cost-competitive and flexible manufacturing solutions in various industries."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Malaysia",
+     "what": "outsourced semiconductor manufacturing",
+     "share": null,
+     "quote": "In addition to Taiwan, we have major operations in the following locations: • P.R.C. — a fast-growing market for semiconductor and electronics manufacturing; • South Korea — an important center for the manufacturing of memory and communications devices; • Malaysia, Singapore, the Philippines and Vietnam — each a center for outsourced semiconductor and electronics manufacturing in Southeast Asia; • Silicon Valley in California — the preeminent center for semiconductor design, with a concentration of fabless customers; • Japan — an emerging market for packaging and testing outsourcing services as Japanese IDMs increasingly outsource their semiconductor manufacturing requirements; • Mexico — a development and manufacturing center for electronic products across different industries with an auxiliary service depot to provide technical services; and • Europe — an original equipment manufacturing solutions center for the electronics industry that continues to grow, driven by the increasing demand for cost-competitive and flexible manufacturing solutions in various industries."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "packaging, testing and EMS services",
+     "share": 10,
+     "quote": "One customer (including other customers for whom OEM services were provided on its behalf) accounted for more than 10.0% of our operating revenues in 2023, 2024, and 2025."
+    }
+   ]
+  },
+  {
+   "task_id": "s198",
+   "links": []
+  },
+  {
+   "task_id": "s226",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "wafer foundry services",
+     "share": 19,
+     "quote": "Our largest customer in 2023, 2024 and 2025 accounted for 25%, 22% and 19% of our net revenue in the respective year."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "wafer foundry services",
+     "share": 17,
+     "quote": "Our second largest customer in 2023, 2024 and 2025 accounted for 11%, 12%, and 17% of our net revenue in the respective year."
+    },
+    {
+     "type": "supplies",
+     "direction": "other_to_filer",
+     "other_party": "Xintec",
+     "what": "wafer level packaging service",
+     "share": null,
+     "quote": "In January 2007, we acquired a 51.2% equity interest in Xintec, a supplier of wafer level packaging service, to support our CMOS image sensor manufacturing business."
+    }
+   ]
+  },
+  {
+   "task_id": "s184",
+   "links": [
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "packaging and test services",
+     "share": 29.8,
+     "quote": "Direct sales to our two largest customers accounted for 29.8% and 11.1% of our net sales for the year ended December 31, 2025."
+    },
+    {
+     "type": "supplies",
+     "direction": "filer_to_other",
+     "other_party": null,
+     "what": "packaging and test services",
+     "share": 11.1,
+     "quote": "Direct sales to our two largest customers accounted for 29.8% and 11.1% of our net sales for the year ended December 31, 2025."
+    }
+   ]
+  },
+  {
+   "task_id": "s526",
+   "links": []
+  },
+  {
+   "task_id": "s232",
+   "links": []
+  },
+  {
+   "task_id": "s502",
+   "links": []
+  }
+ ],
+ "job2": [
+  {
+   "task_id": "doc_000308",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "Stock-pick article arguing Micron is a memory stock to buy, citing Nvidia's larger supply commitments."
+  },
+  {
+   "task_id": "doc_000303",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "TSMC makes a small financial investment in Anthropic's IPO; no change to chip supply."
+  },
+  {
+   "task_id": "doc_000160",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "Freeport's Indonesian unit prices a $750 million bond offering to refinance debt."
+  },
+  {
+   "task_id": "doc_000042",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "Air Products nominates a new board director."
+  },
+  {
+   "task_id": "doc_000022",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "Nvidia files its routine quarterly results announcement."
+  },
+  {
+   "task_id": "doc_000161",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "Freeport's Indonesian unit announces a planned bond offering."
+  },
+  {
+   "task_id": "doc_000034",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "Vertiv raises its dividend."
+  },
+  {
+   "task_id": "doc_000026",
+   "is_event": false,
+   "event_type": null,
+   "severity": null,
+   "affected_nodes": [],
+   "one_line": "TSMC files a 6-K cover page with no supply chain news in the provided text."
+  }
+ ],
+ "job3": []
+}

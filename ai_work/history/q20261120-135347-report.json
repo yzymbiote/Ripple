@@ -1,0 +1,97 @@
+{
+ "job1": [
+  {
+   "task_id": "s339",
+   "linked": 0,
+   "needs_review": 2,
+   "rejected": 0
+  },
+  {
+   "task_id": "s242",
+   "linked": 1,
+   "needs_review": 0,
+   "rejected": 0
+  },
+  {
+   "task_id": "s425",
+   "linked": 1,
+   "needs_review": 0,
+   "rejected": 0
+  },
+  {
+   "task_id": "s277",
+   "linked": 0,
+   "needs_review": 0,
+   "rejected": 0
+  },
+  {
+   "task_id": "s463",
+   "linked": 0,
+   "needs_review": 0,
+   "rejected": 0
+  },
+  {
+   "task_id": "s389",
+   "linked": 0,
+   "needs_review": 0,
+   "rejected": 0
+  },
+  {
+   "task_id": "s444",
+   "linked": 0,
+   "needs_review": 0,
+   "rejected": 0
+  },
+  {
+   "task_id": "s407",
+   "linked": 1,
+   "needs_review": 1,
+   "rejected": 0
+  },
+  {
+   "task_id": "s258",
+   "linked": 0,
+   "needs_review": 1,
+   "rejected": 0
+  },
+  {
+   "task_id": "s296",
+   "linked": 0,
+   "needs_review": 0,
+   "rejected": 0
+  },
+  {
+   "task_id": "s482",
+   "linked": 0,
+   "needs_review": 0,
+   "rejected": 0
+  },
+  {
+   "task_id": "s317",
+   "linked": 1,
+   "needs_review": 1,
+   "rejected": 0
+  },
+  {
+   "task_id": "s323",
+   "linked": 1,
+   "needs_review": 1,
+   "rejected": 0
+  },
+  {
+   "task_id": "s319",
+   "linked": 1,
+   "needs_review": 1,
+   "rejected": 0
+  },
+  {
+   "task_id": "s321",
+   "linked": 1,
+   "needs_review": 1,
+   "rejected": 0
+  }
+ ],
+ "job2": [],
+ "job3": [],
+ "ignored": []
+}

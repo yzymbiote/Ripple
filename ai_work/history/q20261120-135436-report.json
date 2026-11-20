@@ -1,0 +1,19 @@
+{
+ "job1": [
+  {
+   "task_id": "s224",
+   "linked": 2,
+   "needs_review": 0,
+   "rejected": 0
+  },
+  {
+   "task_id": "s196",
+   "linked": 2,
+   "needs_review": 1,
+   "rejected": 0
+  }
+ ],
+ "job2": [],
+ "job3": [],
+ "ignored": []
+}
