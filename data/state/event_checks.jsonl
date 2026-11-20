@@ -1,0 +1,93 @@
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000022", "event_id": null, "result": "{\"task_id\": \"doc_000022\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Nvidia files its routine quarterly results announcement.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000026", "event_id": null, "result": "{\"task_id\": \"doc_000026\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"TSMC files a 6-K cover page with no supply chain news in the provided text.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000034", "event_id": null, "result": "{\"task_id\": \"doc_000034\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Vertiv raises its dividend.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000042", "event_id": null, "result": "{\"task_id\": \"doc_000042\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Air Products nominates a new board director.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000160", "event_id": null, "result": "{\"task_id\": \"doc_000160\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Freeport's Indonesian unit prices a $750 million bond offering to refinance debt.\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000161", "event_id": null, "result": "{\"task_id\": \"doc_000161\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Freeport's Indonesian unit announces a planned bond offering.\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000290", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000291", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000292", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000293", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000294", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000295", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000296", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000297", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000298", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000299", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000300", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000301", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000302", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000303", "event_id": null, "result": "{\"task_id\": \"doc_000303\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"TSMC makes a small financial investment in Anthropic's IPO; no change to chip supply.\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000304", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000305", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000306", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000307", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:53:42", "document_id": "doc_000308", "event_id": null, "result": "{\"task_id\": \"doc_000308\", \"is_event\": false, \"event_type\": null, \"severity\": null, \"affected_nodes\": [], \"one_line\": \"Stock-pick article arguing Micron is a memory stock to buy, citing Nvidia's larger supply commitments.\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000309", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000310", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000311", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000312", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000313", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000314", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000315", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000316", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000317", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000318", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000319", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000320", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000321", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000322", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000323", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000324", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 13:51:48", "document_id": "doc_000325", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000326", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000327", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000328", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000329", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000330", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000331", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000332", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000333", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000334", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000335", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000336", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000337", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000338", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000339", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000340", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000342", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000343", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000344", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000345", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000346", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000347", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000348", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000349", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000350", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000351", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000352", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000353", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000354", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000355", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000356", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000357", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000358", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000359", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000360", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000361", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000362", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000363", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000364", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000365", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000366", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000368", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000369", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000370", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000371", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000372", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000373", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000374", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000375", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000376", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000377", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}
+{"checked_at": "2026-11-20 14:09:57", "document_id": "doc_000378", "event_id": null, "result": "{\"skipped\": \"pre-filter: no map node or no supply wording\"}"}

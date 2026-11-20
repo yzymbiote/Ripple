@@ -1,0 +1,58 @@
+{
+ "queue_id": "q20261120-135436",
+ "answered_by": "claude-code-session (first run, partial)",
+ "job1": [
+  {
+   "task_id": "s224",
+   "links": [
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Taiwan",
+     "what": "wafer fabs",
+     "share": null,
+     "quote": "seven fabs are located in the Southern Taiwan Science Park, two fabs are located in the United States, one fab is located in Shanghai, one fab is located in Nanjing, and one fab is located in Japan."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Japan",
+     "what": "wafer fab (Fab 23, Kumamoto)",
+     "share": null,
+     "quote": "Fab 23 is located in Kumamoto, Japan."
+    }
+   ]
+  },
+  {
+   "task_id": "s196",
+   "links": [
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Taiwan",
+     "what": "memory fabrication and back-end manufacturing",
+     "share": null,
+     "quote": "For our locations in Singapore and Taiwan, this is also a combination of bringing fabrication and back-end manufacturing together."
+    },
+    {
+     "type": "makes_in",
+     "direction": "filer_to_other",
+     "other_party": "Singapore",
+     "what": "memory fabrication and back-end manufacturing",
+     "share": null,
+     "quote": "For our locations in Singapore and Taiwan, this is also a combination of bringing fabrication and back-end manufacturing together."
+    },
+    {
+     "type": "produces",
+     "direction": "filer_to_other",
+     "other_party": "HBM",
+     "what": "HBM3E and HBM4",
+     "share": null,
+     "quote": "In 2026, HBM3E 12-high represented the majority of our HBM shipments."
+    }
+   ]
+  }
+ ],
+ "job2": [],
+ "job3": []
+}

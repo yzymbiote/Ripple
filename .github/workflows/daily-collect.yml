@@ -1,0 +1,67 @@
+# Runs every day at 01:23 Hong Kong time (17:23 UTC), well before the 3am Claude Code session.
+# It collects new filings and news, builds the small AI work queue, refreshes the site's data,
+# and commits the results. Free: public repositories get unlimited Actions minutes, private ones 2,000/month
+# (this job takes a few minutes).
+name: Daily collect
+
+on:
+  schedule:
+    - cron: "23 17 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ripple-data
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      # Raw filings downloaded on earlier days, so text never has to be downloaded twice.
+      - name: Restore raw-filing cache
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: ripple-raw-${{ github.run_id }}
+          restore-keys: ripple-raw-
+
+      - name: Collect, cut, pre-filter, build the AI queue, update the site data
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          # Korean / Japanese collectors and the free-model backup stay off unless you add these secrets.
+          OPENDART_API_KEY: ${{ secrets.OPENDART_API_KEY }}
+          RIPPLE_OPENDART_ENABLED: ${{ secrets.OPENDART_API_KEY != '' && '1' || '' }}
+          EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
+          RIPPLE_EDINET_ENABLED: ${{ secrets.EDINET_API_KEY != '' && '1' || '' }}
+        run: python -m ripple daily-collect --strict || echo "COLLECT_FAILED=1" >> "$GITHUB_ENV"
+
+      - name: Commit the new state, queue and site data
+        run: |
+          git config user.name "ripple-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/state ai_work site/data
+          git diff --cached --quiet || git commit -m "Daily collect $(date -u +%Y-%m-%d)"
+          git push
+
+      # A failed collector should tell you instead of failing silently: GitHub emails you when a run fails.
+      - name: Report collector problems
+        if: env.COLLECT_FAILED == '1'
+        run: |
+          echo "::error::One or more collectors failed. Open this run's log to see which; the rest still ran."
+          exit 1

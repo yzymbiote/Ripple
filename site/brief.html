@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Monday brief — Ripple</title>
+<meta name="description" content="The weekly write-up: the most important ripples, what changed on the map, and how last month’s calls turned out.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>try{var t=localStorage.getItem("ripple-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<style>
+.brief-item { padding: 20px 22px; display: grid; gap: 10px; }
+.brief-item h3 { font-family: var(--serif); font-size: 24px; line-height: 1.2; margin: 0; }
+.brief-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.verdict-held { color: var(--helped-text); } .verdict-missed { color: var(--hurt-text); }
+@media print { .site-header, .ticker, .brief-actions, .sample-banner { display: none !important; } body { background: #fff; color: #000; } }
+</style>
+</head>
+<body>
+<main class="wrap narrow" id="main"></main>
+<script src="data/data.js"></script>
+<script src="assets/common.js"></script>
+<script src="assets/brief.js"></script>
+</body>
+</html>
