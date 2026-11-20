@@ -18,3 +18,12 @@ Choices I made while you were away, so you can check or reverse them.
 9. Layer names are stored short: `memory`, `packaging` (= packaging & chipmaking), `power` (= power & cooling), `materials`, `buyers`.
 10. Linde's home country is set to IE (Linde plc is incorporated in Ireland) even though it trades in the US.
 11. Unimicron files with Taiwan's MOPS (no API key needed but not built yet); Besi, Siemens Energy, Schneider and Prysmian are marked `ir_pdf` (the plan's manual PDF folder); QatarEnergy is state-owned and files nothing.
+
+## SEC collector and section cutter (Phase 1)
+12. The SEC collector stays at **8 requests per second** (SEC's limit is 10) and retries politely on "too many requests" errors.
+13. For **foreign filers** (TSMC, ASE) there are no 10-Qs; they file 20-F (annual) and 6-K (current/quarterly). The collector treats 6-K like 8-K. 
+14. "8-K from the last 4 quarters" = 8-Ks filed in the last 12 months, at most 8 per company by default (some companies file dozens; change with `--max-8k`). Only the main 8-K document is stored, not its attachments (press releases are exhibits) — a possible later improvement.
+15. Raw downloaded HTML is also kept, gzipped, in `data/raw/` (not uploaded to GitHub) so every claim can be traced to exactly what was downloaded.
+16. For a 20-F, "Item 1" is taken from **Item 4 (Information on the Company)** and "Item 1A" from **Item 3.D (Risk Factors)** — the 20-F equivalents.
+17. Short documents (8-K, 6-K under 60,000 characters) are stored whole as a `full` section. 10-Qs get their Part II Item 1A (risk factors) plus customer-concentration sentences.
+18. "Customer-concentration notes" are found by sentence search across the whole filing: a sentence is kept if it mentions a customer/supplier/vendor/foundry/sole source AND a share, "accounted for", "depend", "limited number of", etc. This catches the notes to the financial statements wherever they are. It lets some noise through (that's cheaper than missing a real link).
