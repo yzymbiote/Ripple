@@ -121,6 +121,8 @@ def _job2_tasks(conn, names, max_items) -> list[dict]:
         if len(tasks) >= max_items:
             break
         text = (r["text"] or "").strip()
+        if not text:
+            continue  # text not downloaded yet; it stays unchecked and comes back next time
         if r["doc_type"] in ("8-K", "6-K"):
             # Keep the "Item x.xx" part of an 8-K, skip the cover page boilerplate.
             m = re.search(r"(?im)^\s*item\s+\d\.\d\d", text)

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Map explorer — Ripple</title>
+<meta name="description" content="The whole AI hardware supply map: filter by layer, click a company to see its links and their sources.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>try{var t=localStorage.getItem("ripple-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="stylesheet" href="assets/map.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="article-head" style="padding-bottom:0">
+    <div class="eyebrow">Map explorer</div>
+    <h1 style="font-size:clamp(32px,4.4vw,52px)">Who supplies whom</h1>
+    <p class="dek">Every line is a link found in a filing. Click a company to see its links; click a line to see the quote behind it. Dashed lines are low confidence.</p>
+  </header>
+  <div class="filters" id="filters" role="group" aria-label="Filter by layer"></div>
+  <div class="explorer">
+    <div class="ripple-canvas map-canvas"><div class="grid-bg"></div><div id="map"></div></div>
+    <aside class="card side" id="side" aria-live="polite"></aside>
+  </div>
+</main>
+<script src="data/data.js"></script>
+<script src="assets/common.js"></script>
+<script src="assets/ripple.js"></script>
+<script src="assets/map.js"></script>
+</body>
+</html>

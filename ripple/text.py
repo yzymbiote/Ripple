@@ -4,7 +4,11 @@ from __future__ import annotations
 import re
 import unicodedata
 
-from bs4 import BeautifulSoup
+import warnings
+
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
+
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 BLOCK_TAGS = ["p", "div", "tr", "li", "br", "table", "h1", "h2", "h3", "h4", "h5", "h6",
               "section", "article", "ul", "ol", "center", "title"]

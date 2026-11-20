@@ -168,7 +168,18 @@ def cmd_daily_collect(args) -> None:
     try:
         steps["sec"] = sec_edgar.collect(conn, quarters=args.quarters, max_8k=8, log=lambda *_: None)
         # Re-download text only for documents that still have unread sections.
-        need = [r[0] for r in conn.execute("""SELECT DISTINCT document_id FROM document_sections WHERE processed=0 AND text=''""")]
+        # Only the filings the next queues will use (same order as ripple/queue.py), not the whole backlog.
+        need = [r[0] for r in conn.execute("""
+            SELECT s.document_id FROM document_sections s JOIN documents d ON d.id = s.document_id
+            WHERE s.processed=0 AND s.text='' AND s.keyword_hits > 0
+            ORDER BY CASE WHEN d.doc_type IN ('10-K','20-F','40-F') THEN 0 ELSE 1 END,
+                     CASE s.section WHEN 'customer_concentration' THEN 0 WHEN 'item_1' THEN 1 WHEN 'full' THEN 2 ELSE 3 END,
+                     s.keyword_hits DESC LIMIT 40""")]
+        # ...plus recent 8-Ks/6-Ks the event checker hasn't seen yet.
+        need += [r[0] for r in conn.execute("""
+            SELECT d.id FROM documents d WHERE d.doc_type IN ('8-K','6-K') AND d.text IS NULL
+              AND d.published_at >= date('now','-7 day')
+              AND NOT EXISTS (SELECT 1 FROM event_checks c WHERE c.document_id = d.id)""")]
         steps["sec_rehydrated"] = sec_edgar.rehydrate(conn, need)
     except Exception as exc:
         steps["sec_error"] = str(exc)

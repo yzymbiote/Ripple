@@ -170,7 +170,7 @@ conda-meta/
 .ropeproject
 
 # mkdocs/Zensical documentation
-/site
+# /site  (removed: Ripple keeps its website in site/)
 
 # mypy
 .mypy_cache/

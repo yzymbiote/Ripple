@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Ripple — who gets hit when the AI hardware chain breaks</title>
+<meta name="description" content="When something goes wrong in the AI hardware supply chain, who gets hit, and why. Every link points to its source.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>try{var t=localStorage.getItem("ripple-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body>
+<div class="ticker" aria-label="Latest events"><div class="ticker-track" id="ticker"></div></div>
+
+<main>
+  <section class="hero"><div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Live supply map · memory · packaging · power</div>
+      <h1>When the AI hardware chain breaks, who gets hit?</h1>
+      <p class="lede">Ripple maps who supplies whom across memory, chip packaging, power equipment and the raw materials under them, then traces each new event out to the companies it reaches. Every link points back to the filing it came from.</p>
+      <div class="stat-row" id="stats"></div>
+    </div>
+    <div>
+      <div id="hero-map"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="section-head"><h2>Latest events</h2><span class="muted mono" id="event-count"></span></div>
+    <div class="event-grid" id="events"></div>
+  </div></section>
+
+  <section class="section" id="materials"><div class="wrap">
+    <div class="section-head"><h2>Places and materials</h2><a class="mono" href="map.html">Open the map explorer →</a></div>
+    <div id="material-list" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  </div></section>
+
+  <section class="section" id="companies"><div class="wrap">
+    <div class="section-head"><h2>Companies on the map</h2><span class="muted mono" id="company-count"></span></div>
+    <div id="company-list"></div>
+  </div></section>
+</main>
+
+<script src="data/data.js"></script>
+<script src="assets/common.js"></script>
+<script src="assets/ripple.js"></script>
+<script src="assets/home.js"></script>
+</body>
+</html>

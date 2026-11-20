@@ -20,9 +20,10 @@ from .seed import seed
 
 STATE_DIR = config.DATA_DIR / "state"
 
-# table -> (columns left out, sort key)
+# table -> (columns left out, sort key). News documents keep their text (a headline is tiny).
+KEEP_TEXT_SOURCES = {"gdelt"}
 TABLES = {
-    "documents": ({"text"}, "id"),
+    "documents": (set(), "id"),
     "document_sections": ({"text"}, "id"),
     "links": (set(), "id"),
     "link_sources": (set(), "id"),
@@ -44,7 +45,10 @@ def save(conn: sqlite3.Connection, state_dir: Path = STATE_DIR) -> dict:
         rows = conn.execute(f"SELECT {', '.join(cols)} FROM {table} ORDER BY {order}").fetchall()
         with open(state_dir / f"{table}.jsonl", "w", encoding="utf-8") as f:
             for r in rows:
-                f.write(json.dumps({c: r[c] for c in cols}, ensure_ascii=False, sort_keys=True) + "\n")
+                row = {c: r[c] for c in cols}
+                if table == "documents" and row.get("source") not in KEEP_TEXT_SOURCES:
+                    row.pop("text", None)  # filing text is re-downloaded when needed
+                f.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
         counts[table] = len(rows)
     return counts
 

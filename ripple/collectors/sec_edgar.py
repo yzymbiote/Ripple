@@ -163,8 +163,11 @@ def rehydrate(conn: sqlite3.Connection, document_ids: list[str] | None = None, l
         rows = [r for r in rows if r["id"] in wanted]
     n = 0
     for r in rows:
+        acc = conn.execute("SELECT external_id FROM documents WHERE id=?", (r["id"],)).fetchone()[0]
+        cached = config.RAW_DIR / "sec_edgar" / (r["company_id"] or "") / f"{acc}__{r['url'].rsplit('/', 1)[-1]}.gz"
         try:
-            raw = session().get(r["url"]).content
+            # Use the copy saved on the first download if we still have it (cached between daily runs).
+            raw = gzip.decompress(cached.read_bytes()) if cached.exists() else session().get(r["url"]).content
         except Exception as exc:
             log(f"! could not re-download {r['id']}: {exc}")
             continue

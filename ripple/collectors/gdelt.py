@@ -88,7 +88,7 @@ def collect(conn: sqlite3.Connection, timespan: str = "1d", log=print, sleep=tim
     terms = search_terms(conn)
     groups = [terms[i:i + TERMS_PER_QUERY] for i in range(0, len(terms), TERMS_PER_QUERY)]
     since = (dt.date.today() - dt.timedelta(days=2)).isoformat()
-    recent_titles = {_norm_title(r["text"].split("\n", 1)[0]) for r in conn.execute(
+    recent_titles = {_norm_title((r["text"] or "").split("\n", 1)[0]) for r in conn.execute(
         "SELECT text FROM documents WHERE source='gdelt' AND published_at >= ?", (since,))}
     summary = {"queries": 0, "articles_seen": 0, "new_documents": 0, "duplicates": 0, "errors": []}
     s = requests.Session()
