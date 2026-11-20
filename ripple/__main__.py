@@ -82,7 +82,12 @@ def cmd_ai(args) -> None:
     from .ai import jobs
     conn = db.connect()
     db.init(conn)
-    out = jobs.run(conn, args.job, dry_run=args.dry_run, limit=args.limit, event_id=args.event)
+    if args.job == "extract-links-batch":
+        out = jobs.submit_link_extractor_batch(conn, limit=args.limit)
+    elif args.job == "collect-batch":
+        out = jobs.collect_link_extractor_batch(conn, args.batch_id)
+    else:
+        out = jobs.run(conn, args.job, dry_run=args.dry_run, limit=args.limit, event_id=args.event)
     print(json.dumps(out, indent=2, ensure_ascii=False)[:5000])
 
 
@@ -131,7 +136,8 @@ def main(argv=None) -> None:
     s.set_defaults(func=cmd_export_site)
 
     s = sub.add_parser("ai", help="run an AI job (switched off until you add a key)")
-    s.add_argument("job", choices=["extract-links", "check-events", "explain-ripple"])
+    s.add_argument("job", choices=["extract-links", "check-events", "explain-ripple", "extract-links-batch", "collect-batch"])
+    s.add_argument("--batch-id", help="batch id for collect-batch")
     s.add_argument("--dry-run", action="store_true", help="build the prompts but do not call Claude")
     s.add_argument("--limit", type=int, default=5)
     s.add_argument("--event", help="event id for explain-ripple")

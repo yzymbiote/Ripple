@@ -45,3 +45,14 @@ Choices I made while you were away, so you can check or reverse them.
 30. Sparklines show the stock move after the event from the follow-up log (0 → 1 day → 1 week → 1 month), because the plan's data model only stores those three checkpoints.
 31. The company page also works for places and materials (`company.html?id=helium`): it shows who produces it and who uses it. That covers the plan's "material or place page" too.
 32. An "exposure score" for a *possible winner* is half its link strength, so possible winners don't outrank companies that are clearly hurt.
+
+## AI jobs
+33. **Switched off by default.** No call to Claude happens unless `ANTHROPIC_API_KEY` is set *and* `RIPPLE_AI_ENABLED=1`. `--dry-run` shows the exact prompt without sending anything.
+34. Replies use Claude's **structured outputs** (a JSON schema), so the shape is guaranteed; code then checks the *content*.
+35. Prompts are the plan's prompts, lightly tightened: job 1 also states which way a "supplies" link points and says to keep quotes in the original language (Korean/Japanese filings); job 3 is asked to say when it used general knowledge (`uses_general_knowledge`), and code then forces that impact to low confidence.
+36. **Job 1 checker:** quote not found word for word → thrown out; unnamed or unmatched company → kept in a new `link_candidates` table with status `needs_review` (the review queue); matched → becomes a link with status `pending_review` and high confidence (stated in a filing). Even matched links wait for a person, because the plan says to review every link once by hand on the first pass. The same link found again just gets an extra source and a newer `last_confirmed`.
+37. **Job 2:** only documents that mention at least one map node are sent (others are logged as skipped and never re-read). Its answer may only name nodes that were actually mentioned. Severity 3+ automatically triggers job 3. Results go in a new `event_checks` table.
+38. **Job 3:** runs on `claude-opus-5-5` with adaptive thinking, effort "high", streaming, and server-side fallback switched on in case the model declines. Any company it names that the tracer didn't reach is dropped (no invented impacts).
+39. Job 1 can also run through the **Message Batches API** (half price, results within a day): `python -m ripple ai extract-links-batch --limit 500`, then `python -m ripple ai collect-batch --batch-id ...`.
+40. Tokens for every call are logged in the `ai_usage` table.
+41. Model choice: jobs 1 and 2 on `claude-haiku-5-5` and job 3 on `claude-opus-5-5`, as you asked. Each can be changed in `.env` (`RIPPLE_MODEL_LINK_EXTRACTOR`, etc.).

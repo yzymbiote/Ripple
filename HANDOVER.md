@@ -7,6 +7,7 @@
 - **Phase 1 (SEC part):** SEC EDGAR collector + section cutter. Tested on Micron, Amkor, TSMC, Vertiv and Nvidia: 36 filings downloaded, and Item 1 / Item 1A / customer-concentration sections cut out of each. All 23 SEC company numbers checked against SEC's own list.
 - **Ripple tracer:** finds every path up to 4 steps from an event and scores each company's exposure (0–100). Tested with 51 hand-made SAMPLE links (clearly marked; not real evidence). 16 automated tests pass.
 - **Website shell:** home page (live ticker strip, softly pulsing map, event cards with a small ripple, company list), event page (headline, ripple animation, ranked impacts, explanation, impact cards, biggest unknowns, what happened next, sources), and company page (suppliers, customers, places/materials, events). Dark and light mode, works on phones. It currently shows SAMPLE data, clearly labelled.
+- **AI jobs (written, switched off):** link extractor (job 1), event checker (job 2), ripple explainer (job 3, Claude Opus), with prompts, structured JSON replies, and code checks on every answer (quotes must appear word for word, companies must be on the map, impacts must sit on real paths). Tested with fake replies; no real API calls made.
 
 ## How to run it
 You need Python 3.10 or newer.
@@ -58,6 +59,17 @@ To refresh the website's data from the database:
 
 ```bash
 python -m ripple export-site
+```
+
+### The AI jobs
+See what would be sent to Claude, without sending anything:
+
+```bash
+python -m ripple ai extract-links --dry-run --limit 1
+```
+
+```bash
+python -m ripple ai explain-ripple --dry-run --event evt_sample_0001
 ```
 
 ## What you need to do yourself

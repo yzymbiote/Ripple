@@ -134,6 +134,35 @@ CREATE TABLE IF NOT EXISTS ai_usage (
     created_at     TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+-- Job 1 output before it becomes a link: every extracted relationship, checked by code.
+CREATE TABLE IF NOT EXISTS link_candidates (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    document_id     TEXT NOT NULL REFERENCES documents(id),
+    section         TEXT,
+    filer_node      TEXT REFERENCES nodes(id),
+    other_party     TEXT,                        -- name as written in the filing (NULL if unnamed)
+    matched_node    TEXT REFERENCES nodes(id),
+    type            TEXT,
+    direction       TEXT,
+    what            TEXT,
+    share           REAL,
+    quote           TEXT NOT NULL,
+    quote_verified  INTEGER NOT NULL DEFAULT 0,
+    status          TEXT NOT NULL DEFAULT 'needs_review'
+                    CHECK (status IN ('linked','needs_review','rejected')),
+    reason          TEXT,
+    link_id         TEXT REFERENCES links(id),
+    created_at      TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+-- Job 2 output: which documents the event checker has already judged (never re-read).
+CREATE TABLE IF NOT EXISTS event_checks (
+    document_id  TEXT PRIMARY KEY REFERENCES documents(id),
+    result       TEXT NOT NULL,                  -- JSON reply
+    event_id     TEXT REFERENCES events(id),
+    checked_at   TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE INDEX IF NOT EXISTS idx_links_from ON links(from_node);
 CREATE INDEX IF NOT EXISTS idx_links_to ON links(to_node);
 CREATE INDEX IF NOT EXISTS idx_docs_company ON documents(company_id);
