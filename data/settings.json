@@ -1,0 +1,4 @@
+{
+  "_comment": "auto_approve: while true, links that pass strict checks are approved automatically after each nightly run (see ripple/autoapprove.py). Set to false to go back to approving by hand.",
+  "auto_approve": true
+}

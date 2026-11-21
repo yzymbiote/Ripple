@@ -261,6 +261,9 @@ def import_results(conn: sqlite3.Connection, results: dict | None = None) -> dic
         report["job3"].append({"task_id": task["task_id"], **result})
 
     conn.commit()
+    from . import autoapprove
+    if autoapprove.enabled():
+        report["auto_approve"] = autoapprove.run(conn)
     queue["status"] = "imported"
     QUEUE_FILE.write_text(json.dumps(queue, ensure_ascii=False, indent=1), encoding="utf-8")
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)

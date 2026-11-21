@@ -133,7 +133,9 @@ python -m ripple ai-import
 
 - This runs the checkers: quotes must appear word for word, company names must match the map, no invented companies. Rejected items are fine — that's the checker doing its job. **Don't** try to "fix" rejections by changing quotes.
 - If it fails because the JSON is malformed or a `task_id` is wrong, fix the **format only** and run it again.
-- New links go into the review queue as `pending_review`. **Never approve links** — a person does that.
+- New links go into the review queue as `pending_review`. **Never approve links yourself.** If automatic approval is switched on
+  (`data/settings.json`), the import command approves the ones that pass its strict code checks; that is expected.
+  In your final summary, list what the import report shows under `auto_approve`.
 
 ## Step 6 — Save and push
 

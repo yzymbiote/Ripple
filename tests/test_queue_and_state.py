@@ -17,6 +17,8 @@ def qdir(tmp_path, monkeypatch):
     monkeypatch.setattr(queue, "QUEUE_FILE", tmp_path / "queue.json")
     monkeypatch.setattr(queue, "RESULTS_FILE", tmp_path / "results.json")
     monkeypatch.setattr(queue, "HISTORY_DIR", tmp_path / "history")
+    from ripple import autoapprove
+    monkeypatch.setattr(autoapprove, "SETTINGS_FILE", tmp_path / "no-settings.json")  # auto-approve off in these tests
     return tmp_path
 
 
@@ -84,3 +86,25 @@ def test_backup_is_off_by_default(monkeypatch):
     monkeypatch.delenv("RIPPLE_BACKUP_AI", raising=False)
     assert backup.provider()[0] is None
     assert "switched_off" in backup.run()
+
+
+def test_auto_approve_is_strict(conn, tmp_path, monkeypatch):
+    from ripple import autoapprove
+    monkeypatch.setattr(autoapprove, "SETTINGS_FILE", tmp_path / "settings.json")
+    (tmp_path / "settings.json").write_text('{"auto_approve": true}')
+    conn.execute("INSERT INTO documents (id, source, doc_type, company_id, published_at, collected_at, text) "
+                 "VALUES ('doc_000001','sec_edgar','10-K','nvidia','2026-02-25','2026-11-01','x')")
+    conn.execute("INSERT INTO documents (id, source, doc_type, published_at, collected_at, text) "
+                 "VALUES ('doc_000002','gdelt','news','2026-11-19','2026-11-19','x')")
+    rows = [("link_000001", "tsmc", "nvidia", "high", "doc_000001", "We use foundries such as TSMC to make our wafers."),   # names TSMC -> approve
+            ("link_000002", "samsung", "nvidia", "high", "doc_000001", "We depend on a limited number of suppliers."),      # no name -> keep
+            ("link_000003", "micron", "nvidia", "medium", "doc_000002", "Micron ships HBM to Nvidia")]                      # news -> keep
+    for lid, a, b, conf, doc, q in rows:
+        conn.execute("INSERT INTO links (id, from_node, to_node, type, confidence) VALUES (?,?,?,'supplies',?)", (lid, a, b, conf))
+        conn.execute("INSERT INTO link_sources (link_id, document_id, quote, quote_verified) VALUES (?,?,?,1)", (lid, doc, q))
+    out = autoapprove.run(conn)
+    assert [x["link"] for x in out["auto_approved"]] == ["link_000001"]
+    status = dict(conn.execute("SELECT id, status FROM links").fetchall())
+    assert status == {"link_000001": "approved", "link_000002": "pending_review", "link_000003": "pending_review"}
+    (tmp_path / "settings.json").write_text('{"auto_approve": false}')
+    assert autoapprove.enabled() is False

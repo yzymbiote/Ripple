@@ -44,7 +44,7 @@ There are 37 automated tests, and all pass. Every assumption is numbered in **DE
 ## Working agreement (for any Claude session)
 - **Daily review:** the owner says "pre-review today's links" → Claude lists approve/reject with reasons → owner says "ok" → Claude applies it and **pushes straight to `main`** (no pull request).
 - **Small fixes:** Claude pushes straight to `main` and says what changed. Bigger new features: pull request first.
-- Claude never approves links without the owner's ok.
+- Claude never approves links without the owner's ok, **except**: automatic approval is currently ON (owner's request, 21 Nov 2026). Links from filings whose verified quote names the other side are approved after each nightly run; the rest stay pending. Turn off with `"auto_approve": false` in `data/settings.json`.
 
 ## Part 1 — What you need to do (in this order)
 
