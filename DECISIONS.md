@@ -115,3 +115,4 @@ Choices I made while you were away, so you can check or reverse them.
 
 ## Working agreement (21 Nov 2026)
 84. **The owner allows Claude sessions to push directly to `main`** (no pull request needed) for: review decisions (`data/state`, `site/data`) after the owner has okayed the pre-review list, and small fixes. Bigger new features still go through a pull request so the owner can see them first. Every push is described to the owner in plain words.
+85. **Daily collect moved from 01:23 to 21:23 Hong Kong time (13:23 UTC).** On its first scheduled night GitHub started it about 6 hours late (07:15), so the 3am Claude session found no new work. 21:23 leaves a 5½-hour margin. GitHub warns scheduled runs can be delayed at busy times; if the queue is ever late anyway, the work simply waits for the next night.

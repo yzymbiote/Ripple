@@ -30,7 +30,7 @@ What's new:
    - places and materials pages (who produces it, who uses it);
    - an interactive **map explorer** (`map.html`);
    - a **Monday brief** (`brief.html`) that drafts itself from the data, with buttons to copy it as a newsletter, copy it as a social thread, or print it.
-7. **GitHub Actions "Daily collect"** runs at 01:23 HK time, before the 3am session:
+7. **GitHub Actions "Daily collect"** runs at 21:23 HK time, before the 3am session:
    - it collects filings and news, builds the queue, updates the site data and commits it;
    - if a collector fails, GitHub emails you instead of failing silently;
    - it costs nothing.
@@ -128,7 +128,7 @@ Your browser opens the review page. For each link, read the quote, then click **
 
 | When (HK time) | What | Where |
 |---|---|---|
-| 01:23 | Collect SEC filings and GDELT news, cut sections, pre-filter, build `ai_work/queue.json`, update site data, commit | GitHub Actions (free) |
+| 21:23 (day before) | Collect SEC filings and GDELT news, cut sections, pre-filter, build `ai_work/queue.json`, update site data, commit | GitHub Actions (free) |
 | 01:30 or so | Publish the site | GitHub Actions (free) |
 | 03:07 | Read the queue, do jobs 1–3, write `ai_work/results.json`, run `ai-import`, commit and push | Your scheduled Claude Code session (your plan) |
 | Any time | Approve or reject links | You, on the review page |

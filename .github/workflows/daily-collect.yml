@@ -1,4 +1,5 @@
-# Runs every day at 01:23 Hong Kong time (17:23 UTC), well before the 3am Claude Code session.
+# Runs every day at 21:23 Hong Kong time (13:23 UTC). GitHub can start scheduled runs hours late,
+# so this leaves a wide margin before the 3am Claude Code session.
 # It collects new filings and news, builds the small AI work queue, refreshes the site's data,
 # and commits the results. Free: public repositories get unlimited Actions minutes, private ones 2,000/month
 # (this job takes a few minutes).
@@ -6,7 +7,7 @@ name: Daily collect
 
 on:
   schedule:
-    - cron: "23 17 * * *"
+    - cron: "23 13 * * *"
   workflow_dispatch: {}
 
 permissions:
