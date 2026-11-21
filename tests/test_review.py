@@ -53,3 +53,17 @@ def test_unnamed_candidate_can_be_shown_as_placeholder(rconn):
     assert review_server.act_on_candidate(rconn, unnamed, {"action": "placeholder"}) == {"ok": True}
     from ripple import export_site
     assert export_site.build(rconn, include_sample=False)["unnamed"][0]["share"] == 22
+
+
+def test_daily_review_apply_logs_and_respects_rules(rconn, tmp_path, monkeypatch):
+    from ripple import daily_review, queue
+    monkeypatch.setattr(queue, "HISTORY_DIR", tmp_path)
+    monkeypatch.setattr(daily_review, "HISTORY_DIR", tmp_path)
+    cid = rconn.execute("SELECT id FROM link_candidates").fetchone()[0]
+    out = daily_review.apply(rconn, {
+        "links": [{"link_id": "link_000001", "decision": "approve", "confidence": "medium", "reason": "quote names TSMC"}],
+        "candidates": [{"candidate_id": cid, "decision": "reject", "reason": "not on map, off-topic"}]})
+    assert out["counts"] == {"approve": 1, "reject": 1} and out["errors"] == []
+    row = rconn.execute("SELECT status, confidence FROM links WHERE id='link_000001'").fetchone()
+    assert tuple(row) == ("approved", "medium")
+    assert list(tmp_path.glob("*-review-log.json"))

@@ -215,6 +215,21 @@ def cmd_add_event(args) -> None:
     export_site.export(conn)
 
 
+def cmd_review_list(args) -> None:
+    from . import daily_review
+    print(json.dumps(daily_review.build_list(_conn()), indent=1))
+
+
+def cmd_review_apply(args) -> None:
+    from pathlib import Path
+    from . import daily_review, export_site, state
+    conn = _conn()
+    out = daily_review.apply(conn, json.loads(Path(args.file).read_text(encoding="utf-8")))
+    state.save(conn)
+    export_site.export(conn)
+    print(json.dumps(out, indent=1, ensure_ascii=False))
+
+
 def main(argv=None) -> None:
     p = argparse.ArgumentParser(prog="python -m ripple", description="Ripple supply chain tracker")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -286,6 +301,11 @@ def main(argv=None) -> None:
     s = sub.add_parser("add-event", help="enter an event by hand from a JSON file (see data/events/)")
     s.add_argument("file")
     s.set_defaults(func=cmd_add_event)
+
+    sub.add_parser("review-list", help="write ai_work/review.json: pending links and candidates to review").set_defaults(func=cmd_review_list)
+    s = sub.add_parser("review-apply", help="apply review decisions from a JSON file (logged in ai_work/history)")
+    s.add_argument("file")
+    s.set_defaults(func=cmd_review_apply)
 
     args = p.parse_args(argv)
     args.func(args)

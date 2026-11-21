@@ -137,6 +137,11 @@ python -m ripple ai-import
   (`data/settings.json`), the import command approves the ones that pass its strict code checks; that is expected.
   In your final summary, list what the import report shows under `auto_approve`.
 
+## Step 5b — (not for this session)
+
+Link reviews are done by a separate daily review session at 04:37 that follows `REVIEW_TASKS.md`. **This session does not review or approve links**
+(the import command's strict automatic approval, if switched on in `data/settings.json`, is code and is expected).
+
 ## Step 6 — Save and push
 
 ```bash

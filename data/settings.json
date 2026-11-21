@@ -1,4 +1,5 @@
 {
-  "_comment": "auto_approve: while true, links that pass strict checks are approved automatically after each nightly run (see ripple/autoapprove.py). Set to false to go back to approving by hand.",
-  "auto_approve": true
+  "_comment": "auto_approve: strict code approval after each nightly import. claude_reviews: the nightly Claude session also reviews everything left pending (approve / reject / keep, with reasons logged in ai_work/history). Both were switched on at the owner's request on 21 Nov 2026, until the owner says otherwise. Set either to false to switch it off.",
+  "auto_approve": true,
+  "claude_reviews": true
 }
